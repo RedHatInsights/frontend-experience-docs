@@ -67,7 +67,8 @@ copy_readme() {
 
 update_mkdocs_yml() {
     local repo_name=$1
-    local new_entry="      - ${repo_name}: ${TARGET_DIR}/${repo_name}.md"
+    local new_entry
+    new_entry=$(printf "      - %s: %s\n" "$repo_name" "${TARGET_DIR}/${repo_name}.md")
 
     if ! grep -q "$SERVICES_SECTION:" "$MKDOCS_FILE"; then
         echo -e "\nnav:\n  - $SERVICES_SECTION:\n$new_entry" >> "$MKDOCS_FILE"
