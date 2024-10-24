@@ -35,17 +35,10 @@ jobs:
         run: |
           ./update_services.sh
 
-      - name: Compare branches and push if different
-        id: compare_branches
+      - name: Push changes
         run: |
-          git fetch origin master
-          if ! git diff --quiet master; then
-            git push origin "$BRANCH_NAME"
-            echo "branch=$BRANCH_NAME" >> $GITHUB_ENV
-          else
-            echo "No changes to push."
-            echo "branch=" >> $GITHUB_ENV  # Empty branch variable to avoid errors later
-          fi
+          git push origin "$BRANCH_NAME"
+          echo "branch=$BRANCH_NAME" >> $GITHUB_ENV
 
       - name: Create Pull Request
         if: env.branch != ''
