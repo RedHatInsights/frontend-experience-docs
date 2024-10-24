@@ -33,12 +33,13 @@ jobs:
           git add .
           git commit -m "Update services with latest READMEs" || echo "No changes to commit"
           git push origin "$BRANCH_NAME"
+          echo "::set-output name=branch::$BRANCH_NAME"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: $BRANCH_NAME
+          branch: ${{ steps.create_branch.outputs.branch }}
           title: "Update Services in docs"
           body: "Update of the Services docs section with the latest README changes."
           labels: |
