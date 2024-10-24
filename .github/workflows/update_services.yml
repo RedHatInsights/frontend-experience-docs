@@ -1,0 +1,33 @@
+name: Update services docs
+
+on:
+  # run every day at 1 AM
+  schedule:
+    - cron: '0 1 * * *' 
+  # allow manual triggering
+  workflow_dispatch:
+
+jobs:
+  update-readmes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: sudo apt-get install git
+
+      - name: Make the update script executable
+        run: chmod +x update_docs.sh
+
+      - name: Run the update_docs.sh script
+        run: ./update_docs.sh
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Update services docs with latest READMEs" || echo "No changes to commit"
+          git push
