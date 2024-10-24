@@ -84,8 +84,6 @@ main() {
     mkdir -p "$TARGET_DIR"
     mkdir -p "$TEMP_DIR"
 
-    git checkout -b "$BRANCH_NAME"
-
     for repo_name in "${!repos[@]}"; do
         repo_url="${repos[$repo_name]}"
 
