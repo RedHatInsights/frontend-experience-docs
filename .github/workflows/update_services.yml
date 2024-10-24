@@ -41,7 +41,8 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ steps.create_branch.outputs.branch }}
+          base: master
+          head: ${{ steps.create_branch.outputs.branch }}
           title: "Update Services in docs"
           body: "Update of the Services docs section with the latest README changes."
           labels: |
