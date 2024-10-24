@@ -21,7 +21,6 @@ TARGET_DIR="pages/services"
 TEMP_DIR="temp_repos"
 MKDOCS_FILE="mkdocs.yml"
 SERVICES_SECTION="Services"
-BRANCH_NAME="update-services-docs-$(date +'%Y%m%d%H%M%S')"
 
 get_default_branch() {
     local repo_dir=$1
