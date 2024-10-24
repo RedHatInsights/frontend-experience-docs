@@ -24,11 +24,13 @@ jobs:
       - name: Run the update_docs.sh script
         run: ./update_services.sh
 
-      - name: Commit changes
+      - name: Commit changes and create branch
+        id: create_branch
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           BRANCH_NAME="update-services-docs-$(date +'%Y%m%d%H%M%S')"
+          echo "Branch Name: $BRANCH_NAME"
           git checkout -b "$BRANCH_NAME"
           git add .
           git commit -m "Update services with latest READMEs" || echo "No changes to commit"
