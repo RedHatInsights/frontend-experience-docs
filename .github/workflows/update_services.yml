@@ -1,11 +1,9 @@
 name: Update services docs
 
 on:
-  # run every day at 1 AM
   schedule:
-    - cron: '0 1 * * *'
-  # allow manual triggering
-  workflow_dispatch:
+    - cron: '0 1 * * *'  # Run every day at 1 AM
+  workflow_dispatch:  # Allow manual triggering
 
 jobs:
   update-readmes:
@@ -24,20 +22,33 @@ jobs:
         run: chmod +x update_services.sh
 
       - name: Run the update_services.sh script
-        run: ./update_services.sh
-
-      - name: Push changes
         run: |
+          ./update_services.sh
+
+      - name: Check for changes and create a branch
+        id: create_branch
+        run: |
+          # Create a unique branch name
           BRANCH_NAME="update-services-docs-$(date +'%Y%m%d%H%M%S')"
-          git checkout -b "$BRANCH_NAME"
-          git push origin "$BRANCH_NAME"
+          echo "Branch name: $BRANCH_NAME"
+          
+          # Check if there are changes to commit
+          if [ -n "$(git status --porcelain)" ]; then
+            git checkout -b "$BRANCH_NAME"
+            git push origin "$BRANCH_NAME"
+            echo "branch=$BRANCH_NAME" >> $GITHUB_ENV
+          else
+            echo "No changes to commit."
+            echo "branch=" >> $GITHUB_ENV  # Empty branch variable to avoid errors later
+          fi
 
       - name: Create Pull Request
+        if: env.branch != ''
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: master
-          branch: ${{ steps.push_changes.outputs.branch }}
+          branch: ${{ env.branch }}
           title: "Update Services in docs"
           body: "Update of the Services docs section with the latest README changes."
           labels: |
