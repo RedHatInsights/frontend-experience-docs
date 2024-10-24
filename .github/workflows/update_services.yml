@@ -33,14 +33,14 @@ jobs:
         run: |
           ./update_services.sh
 
-      - name: Check for changes
+      - name: Compare branches and push if different
+        id: compare_branches
         run: |
-          # Check if there are changes to commit
-          if [ -n "$(git status --porcelain)" ]; then
+          if ! git diff --quiet master...; then
             git push origin "$BRANCH_NAME"
             echo "branch=$BRANCH_NAME" >> $GITHUB_ENV
           else
-            echo "No changes to commit."
+            echo "No changes to push."
             echo "branch=" >> $GITHUB_ENV  # Empty branch variable to avoid errors later
           fi
 
