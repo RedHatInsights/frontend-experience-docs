@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set up Git
         run: |
@@ -30,15 +28,22 @@ jobs:
           BRANCH_NAME="update-services-docs-$(date +'%Y%m%d%H%M%S')"
           echo "Branch name: $BRANCH_NAME"
           git checkout -b "$BRANCH_NAME"
+          echo "branch=$BRANCH_NAME" >> $GITHUB_ENV
 
       - name: Run the update_services.sh script
         run: |
           ./update_services.sh
 
-      - name: Push changes
+      - name: Compare branches and push if different
+        id: compare_branches
         run: |
-          git push origin "$BRANCH_NAME"
-          echo "branch=$BRANCH_NAME" >> $GITHUB_ENV
+          git fetch origin master
+          if ! git diff --quiet master; then
+            git push origin ${{ env.branch }}
+          else
+            echo "No changes to push."
+            echo "branch=" >> $GITHUB_ENV  # Empty branch variable to avoid errors later
+          fi
 
       - name: Create Pull Request
         if: env.branch != ''
