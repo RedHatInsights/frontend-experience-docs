@@ -21,6 +21,7 @@ TARGET_DIR="pages/services"
 TEMP_DIR="temp_repos"
 MKDOCS_FILE="mkdocs.yml"
 SERVICES_SECTION="Services"
+BRANCH_NAME="update-services-docs-$(date +'%Y%m%d%H%M%S')"
 
 get_default_branch() {
     local repo_dir=$1
@@ -68,14 +69,12 @@ update_mkdocs_yml() {
     local repo_name=$1
     local new_entry="      - ${repo_name}: ${TARGET_DIR}/${repo_name}.md"
 
-    # check if mkdocs.yml has "Services" section
     if ! grep -q "$SERVICES_SECTION:" "$MKDOCS_FILE"; then
         echo -e "\nnav:\n  - $SERVICES_SECTION:\n$new_entry" >> "$MKDOCS_FILE"
     else
         if grep -q "$repo_name" "$MKDOCS_FILE"; then
             echo "Navigation entry for $repo_name already exists in $MKDOCS_FILE."
         else
-            # append the repo under the "Services" section
             sed -i "/- $SERVICES_SECTION:/a$new_entry" "$MKDOCS_FILE"
         fi
     fi
@@ -84,6 +83,8 @@ update_mkdocs_yml() {
 main() {
     mkdir -p "$TARGET_DIR"
     mkdir -p "$TEMP_DIR"
+
+    git checkout -b "$BRANCH_NAME"
 
     for repo_name in "${!repos[@]}"; do
         repo_url="${repos[$repo_name]}"
@@ -96,6 +97,13 @@ main() {
     done
 
     rm -rf "$TEMP_DIR"
+
+    if ! git diff --quiet; then
+        git add .
+        git commit -m "Update services docs with latest READMEs"
+    else
+        echo "No changes to commit."
+    fi
 }
 
 main
