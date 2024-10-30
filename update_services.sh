@@ -79,7 +79,7 @@ update_mkdocs_yml() {
     fi
 
     # Remove existing entries for services if present
-    sed -i "/^  - $SERVICES_SECTION:/,/^  - /d" "$MKDOCS_FILE"
+    sed -i "/^  - $SERVICES_SECTION:/,/^[^ ]/d" "$MKDOCS_FILE"
 
     # Add entries for services in the correct order
     for entry in "${new_entries[@]}"; do
