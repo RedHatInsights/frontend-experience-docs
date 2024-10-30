@@ -31,6 +31,7 @@ get_default_branch() {
     echo "$default_branch"
 }
 
+# clone or pull the latest repo changes
 clone_or_pull_repo() {
     local repo_name=$1
     local repo_url=$2
