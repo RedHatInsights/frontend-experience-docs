@@ -26,21 +26,29 @@ jobs:
       - name: Run the update_services.sh script
         run: ./update_services.sh
 
+      - name: Confirm README files in target directory
+        run: |
+          echo "Contents of the target directory after running the script:"
+          ls -l pages/services  # List files to ensure they were created
+
       - name: Check for changes and create a branch
         id: create_branch
         run: |
+          # Stage all files and confirm if any changes exist
+          git add -A
+          echo "Checking for changes after staging files..."
+          git status --porcelain  # This should show any modified or new files
           
+          # Commit if there are changes to push
           if [ -n "$(git status --porcelain)" ]; then
-            # Create a unique branch name
             BRANCH_NAME="update-services-docs-$(date +'%Y%m%d%H%M%S')"
-            echo "Branch name: $BRANCH_NAME"
             git commit -m "Update services docs with latest READMEs"
             git checkout -b "$BRANCH_NAME"
             git push origin "$BRANCH_NAME"
             echo "branch=$BRANCH_NAME" >> $GITHUB_ENV
           else
             echo "No changes to commit."
-            echo "branch=" >> $GITHUB_ENV  # Empty branch variable to avoid errors later
+            echo "branch=" >> $GITHUB_ENV
           fi
 
       - name: Create Pull Request
