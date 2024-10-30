@@ -18,19 +18,4 @@ nav:
   - Frontend compoonents to PatternFly component groups: frontend-migrations/frontend-components-to-PF-component-groups.md
   - PatternFly 4 => 5: frontend-migrations/pf-4-to-pf5.md
   - React Router DOM 5 => 6: frontend-migrations/react-router-dom-v5-to-v6.md
-- Services:
-  - Landing page UI: "https://github.com/RedHatInsights/landing-page-frontend/blob/master/README.md"
-  - Settings UI: "https://github.com/RedHatInsights/settings-frontend/blob/master/README.md"
-  - User preferences UI: "https://github.com/RedHatInsights/user-preferences-frontend/blob/master/README.md"
-  - API catalog: "https://github.com/RedHatInsights/api-documentation-frontend/blob/master/README.md"
-  - Notifications UI: "https://github.com/RedHatInsights/notifications-frontend/blob/master/README.md"
-  - RBAC UI: "https://github.com/RedHatInsights/insights-rbac-ui/blob/master/README.md"
-  - Sources UI: "https://github.com/RedHatInsights/sources-ui/blob/master/README.md"
-  - Learning resource page: "https://github.com/RedHatInsights/learning-resources/blob/master/README.md"
-  - Payload tracker UI: "https://github.com/RedHatInsights/payload-tracker-frontend/blob/master/README.md"
-  - UI starter app: "https://github.com/RedHatInsights/frontend-starter-app/blob/master/README.md"
-  - Frontend components: "https://github.com/RedHatInsights/frontend-components/blob/master/README.md"
-  - PF Component groups: "https://github.com/patternfly/react-data-view/blob/main/README.md"
-  - PF Data view: "https://github.com/patternfly/react-component-groups/blob/main/README.md"
-  - PF Virtual assistant: "https://github.com/patternfly/virtual-assistant/blob/main/README.md"
 

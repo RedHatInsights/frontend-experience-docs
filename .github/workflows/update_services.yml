@@ -1,0 +1,57 @@
+name: Update services docs
+
+on:
+  schedule:
+    - cron: '0 1 * * *'  # Run every day at 1 AM
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  update-readmes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Make the update script executable
+        run: chmod +x update_services.sh
+
+      - name: Create a branch
+        id: create_branch
+        run: |
+          # Create a unique branch name
+          BRANCH_NAME="update-services-docs-$(date +'%Y%m%d%H%M%S')"
+          echo "Branch name: $BRANCH_NAME"
+          git checkout -b "$BRANCH_NAME"
+          echo "branch=$BRANCH_NAME" >> $GITHUB_ENV
+
+      - name: Run the update_services.sh script
+        run: ./update_services.sh
+
+      - name: Compare branches and push if different
+        id: compare_branches
+        run: |
+          git fetch origin master
+          if ! git diff --quiet master; then
+            git push origin ${{ env.branch }}
+          else
+            echo "No changes to push."
+            echo "branch=" >> $GITHUB_ENV  # Empty branch variable to avoid errors later
+          fi
+
+      - name: Create Pull Request
+        if: env.branch != ''
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: master
+          branch: ${{ env.branch }}
+          title: "Update Services in docs"
+          body: "Update of the Services docs section with the latest README changes."
+          labels: |
+            documentation
