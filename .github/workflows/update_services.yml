@@ -26,17 +26,30 @@ jobs:
       - name: Run the update_services.sh script
         run: ./update_services.sh
 
-      - name: Confirm README files in target directory
+      - name: Verify README files in target directory
         run: |
-          echo "Contents of the target directory after running the script:"
-          ls -l pages/services  # List files to ensure they were created
+          echo "Contents of pages/services after running the script:"
+          ls -l pages/services
 
-      - name: Stage and commit changes
+      - name: Check for untracked or modified files
         run: |
-          # Explicitly add files to ensure they are tracked
+          echo "Running git status to check for untracked files:"
+          git status  # Display status to check if files appear as untracked
+          
+          # List all untracked files for additional diagnostics
+          echo "Listing untracked files only:"
+          git ls-files --others --exclude-standard
+
+      - name: Stage, commit, and push changes if present
+        run: |
+          # Add all markdown files in the services directory
           git add pages/services/*.md
           
-          # Confirm if any changes exist
+          # Run git status again to confirm if files are now staged
+          echo "Checking git status after adding files:"
+          git status
+          
+          # Commit and push only if there are changes
           if [ -n "$(git status --porcelain)" ]; then
             BRANCH_NAME="update-services-docs-$(date +'%Y%m%d%H%M%S')"
             git commit -m "Update services docs with latest READMEs"
