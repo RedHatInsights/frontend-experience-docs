@@ -19,3 +19,5 @@ nav:
   - PatternFly 4 => 5: frontend-migrations/pf-4-to-pf5.md
   - React Router DOM 5 => 6: frontend-migrations/react-router-dom-v5-to-v6.md
 
+- Services:
+  - Settings UI: pages/services/Settings UI.md
