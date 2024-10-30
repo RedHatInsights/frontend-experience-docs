@@ -31,7 +31,7 @@ get_default_branch() {
     echo "$default_branch"
 }
 
-# clone or pull the latest repo changes
+# Clone or pull the latest repo changes
 clone_or_pull_repo() {
     local repo_name=$1
     local repo_url=$2
@@ -65,18 +65,27 @@ copy_readme() {
 }
 
 update_mkdocs_yml() {
-    local repo_name=$1
-    local new_entry="      - ${repo_name}: ${TARGET_DIR}/${repo_name}.md"
+    local new_entries=()
+    
+    # Prepare new entries based on repo names
+    for repo_name in "${!repos[@]}"; do
+        new_entries+=("  - $repo_name: $TARGET_DIR/$repo_name.md")
+    done
 
+    # Create a new section for services if it doesn't exist
     if ! grep -q "$SERVICES_SECTION:" "$MKDOCS_FILE"; then
-        echo -e "\nnav:\n  - $SERVICES_SECTION:\n$new_entry" >> "$MKDOCS_FILE"
-    else
-        if grep -q "$repo_name" "$MKDOCS_FILE"; then
-            echo "Navigation entry for $repo_name already exists in $MKDOCS_FILE."
-        else
-            sed -i "/- $SERVICES_SECTION:/a$new_entry" "$MKDOCS_FILE"
-        fi
+        echo -e "\nnav:" >> "$MKDOCS_FILE"
+        echo "  - $SERVICES_SECTION:" >> "$MKDOCS_FILE"
     fi
+
+    # Add entries for services in the correct order
+    for entry in "${new_entries[@]}"; do
+        if ! grep -q "$entry" "$MKDOCS_FILE"; then
+            sed -i "/- $SERVICES_SECTION:/a$entry" "$MKDOCS_FILE"
+        else
+            echo "Navigation entry for $entry already exists in $MKDOCS_FILE."
+        fi
+    done
 }
 
 main() {
@@ -87,11 +96,10 @@ main() {
         repo_url="${repos[$repo_name]}"
 
         clone_or_pull_repo "$repo_name" "$repo_url"
-
         copy_readme "$repo_name"
-
-        update_mkdocs_yml "$repo_name"
     done
+
+    update_mkdocs_yml
 
     rm -rf "$TEMP_DIR"
 }
