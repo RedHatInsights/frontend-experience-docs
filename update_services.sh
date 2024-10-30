@@ -69,7 +69,7 @@ update_mkdocs_yml() {
     
     # Prepare new entries based on repo names
     for repo_name in "${!repos[@]}"; do
-        new_entries+=("  - $repo_name: $TARGET_DIR/$repo_name.md")
+        new_entries+=("    - $repo_name: $TARGET_DIR/$repo_name.md")  # Indented for proper YAML formatting
     done
 
     # Create a new section for services if it doesn't exist
@@ -78,13 +78,12 @@ update_mkdocs_yml() {
         echo "  - $SERVICES_SECTION:" >> "$MKDOCS_FILE"
     fi
 
+    # Remove existing entries for services if present
+    sed -i "/^  - $SERVICES_SECTION:/,/^  - /d" "$MKDOCS_FILE"
+
     # Add entries for services in the correct order
     for entry in "${new_entries[@]}"; do
-        if ! grep -q "$entry" "$MKDOCS_FILE"; then
-            sed -i "/- $SERVICES_SECTION:/a$entry" "$MKDOCS_FILE"
-        else
-            echo "Navigation entry for $entry already exists in $MKDOCS_FILE."
-        fi
+        sed -i "/^  - $SERVICES_SECTION:/a$entry" "$MKDOCS_FILE"
     done
 }
 
