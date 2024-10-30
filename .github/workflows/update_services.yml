@@ -13,7 +13,7 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v4
         with:
-          ref: master
+          ref: master  # Ensure it checks out the master branch
 
       - name: Set up Git
         run: |
@@ -31,15 +31,12 @@ jobs:
           echo "Contents of the target directory after running the script:"
           ls -l pages/services  # List files to ensure they were created
 
-      - name: Check for changes and create a branch
-        id: create_branch
+      - name: Stage and commit changes
         run: |
-          # Stage all files and confirm if any changes exist
-          git add -A
-          echo "Checking for changes after staging files..."
-          git status --porcelain  # This should show any modified or new files
+          # Explicitly add files to ensure they are tracked
+          git add pages/services/*.md
           
-          # Commit if there are changes to push
+          # Confirm if any changes exist
           if [ -n "$(git status --porcelain)" ]; then
             BRANCH_NAME="update-services-docs-$(date +'%Y%m%d%H%M%S')"
             git commit -m "Update services docs with latest READMEs"
