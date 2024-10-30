@@ -31,8 +31,7 @@ jobs:
           echo "branch=$BRANCH_NAME" >> $GITHUB_ENV
 
       - name: Run the update_services.sh script
-        run: |
-          ./update_services.sh
+        run: ./update_services.sh
 
       - name: Compare branches and push if different
         id: compare_branches
