@@ -18,3 +18,19 @@ nav:
   - Frontend compoonents to PatternFly component groups: frontend-migrations/frontend-components-to-PF-component-groups.md
   - PatternFly 4 => 5: frontend-migrations/pf-4-to-pf5.md
   - React Router DOM 5 => 6: frontend-migrations/react-router-dom-v5-to-v6.md
+
+- Services:
+  - Settings UI: pages/services/Settings UI.md
+- API catalog: pages/services/API catalog.md
+- PF Virtual assistant: pages/services/PF Virtual assistant.md
+- Sources UI: pages/services/Sources UI.md
+- RBAC UI: pages/services/RBAC UI.md
+- User preferences UI: pages/services/User preferences UI.md
+- UI starter app: pages/services/UI starter app.md
+- Learning resource page: pages/services/Learning resource page.md
+- Notifications UI: pages/services/Notifications UI.md
+- Frontend components: pages/services/Frontend components.md
+- PF Data view: pages/services/PF Data view.md
+- Landing page UI: pages/services/Landing page UI.md
+- PF Component groups: pages/services/PF Component groups.md
+- Payload tracker UI: pages/services/Payload tracker UI.md
