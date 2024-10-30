@@ -1,20 +1,5 @@
-docs_dir: ./pages
-site_name: Frontend Experience Docs
+  - PF Component groups: pages/services/PF Component groups.md
 
-markdown_extensions:
-  - toc:
-      permalink: "#"
 
-nav:
-- Home: index.md
-- Onboarding:
-  - Video recordings: onboarding/recordings.md
-  - PR template: onboarding/pr-template.md
-  - Platform styling: onboarding/platform-styling.md
-- Testing:
-  - Testing strategy: testing/testing-strategy.md
-- Frontend migrations:
-  - Frontend compoonents 3 => 4: frontend-migrations/frontend-components-3-to-4.md
-  - Frontend compoonents to PatternFly component groups: frontend-migrations/frontend-components-to-PF-component-groups.md
-  - PatternFly 4 => 5: frontend-migrations/pf-4-to-pf5.md
-  - React Router DOM 5 => 6: frontend-migrations/react-router-dom-v5-to-v6.md
+- Services:
+  - Payload tracker UI: pages/services/Payload tracker UI.md
