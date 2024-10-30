@@ -31,23 +31,10 @@ jobs:
           echo "Contents of pages/services after running the script:"
           ls -l pages/services
 
-      - name: Check for untracked or modified files
+      - name: Stage and commit changes
         run: |
-          echo "Running git status to check for untracked files:"
-          git status  # Display status to check if files appear as untracked
-          
-          # List all untracked files for additional diagnostics
-          echo "Listing untracked files only:"
-          git ls-files --others --exclude-standard
-
-      - name: Stage, commit, and push changes if present
-        run: |
-          # Add all markdown files in the services directory
+          # Stage all markdown files in the services directory
           git add pages/services/*.md
-          
-          # Run git status again to confirm if files are now staged
-          echo "Checking git status after adding files:"
-          git status
           
           # Commit and push only if there are changes
           if [ -n "$(git status --porcelain)" ]; then

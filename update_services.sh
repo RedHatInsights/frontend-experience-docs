@@ -85,20 +85,15 @@ main() {
 
     for repo_name in "${!repos[@]}"; do
         repo_url="${repos[$repo_name]}"
+
         clone_or_pull_repo "$repo_name" "$repo_url"
+
         copy_readme "$repo_name"
+
         update_mkdocs_yml "$repo_name"
     done
 
     rm -rf "$TEMP_DIR"
-
-    git add -A
-
-    if ! git diff --cached --quiet; then
-        git commit -m "Update services docs with latest READMEs"
-    else
-        echo "No changes to commit."
-    fi
 }
 
 main
