@@ -13,6 +13,22 @@ nav:
   - Platform styling: onboarding/platform-styling.md
 - Testing:
   - Testing strategy: testing/testing-strategy.md
+# when making changes to "Services:" subitems, please edit also the update_services.sh script
+- Services:
+  - Landing page UI: pages/services/Landing page UI.md
+  - Settings UI: pages/services/Settings UI.md
+  - User preferences UI: pages/services/User preferences UI.md
+  - API catalog: pages/services/API catalog.md
+  - Notifications UI: pages/services/Notifications UI.md
+  - RBAC UI: pages/services/RBAC UI.md
+  - Sources UI: pages/services/Sources UI.md
+  - Learning resource page: pages/services/Learning resource page.md
+  - Payload tracker UI: pages/services/Payload tracker UI.md
+  - UI starter app: pages/services/UI starter app.md
+  - Frontend components: pages/services/Frontend components.md
+  - PF Component groups: pages/services/PF Component groups.md
+  - PF Data view: pages/services/PF Data view.md
+  - PF Virtual assistant: pages/services/PF Virtual assistant.md
 - Frontend migrations:
   - Frontend compoonents 3 => 4: frontend-migrations/frontend-components-3-to-4.md
   - Frontend compoonents to PatternFly component groups: frontend-migrations/frontend-components-to-PF-component-groups.md
