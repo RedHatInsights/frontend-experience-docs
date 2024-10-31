@@ -57,7 +57,7 @@ copy_readme() {
     local dest_path="${TARGET_DIR}/${repo_name}.md"
 
     if [ -f "$readme_path" ]; then
-        cp "$readme_path" "$dest_path"
+        cp -f "$readme_path" "$dest_path"
     else
         echo "README.md not found in $repo_name!"
     fi
