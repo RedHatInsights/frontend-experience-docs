@@ -1,21 +1,21 @@
-# PatternFly Virtual Assistant
+# PatternFly ChatBot
 
-This repo contains React Virtual assistant implementation.
+This PatternFly extension library provides components based on PatternFly 6 that can be used to build chatbots.
 
 ---
 
 ## Install
 
-To play with virtual-assistant in your project, run
+To use the chatbot extension in your project, run
 
 ```
-npm install @patternfly/virtual-assistant --save
+npm install @patternfly/chatbot --save
 ```
 
 Make sure to add the CSS imports as the last import in your index file. The extension is intended to override certain PatternFly component styles. However, if it's not the last import, you may not see these.
 
 ```
-import '@patternfly/virtual-assistant/dist/css/main.css';
+import '@patternfly/chatbot/dist/css/main.css';
 ```
 
 ## Contribution guide
@@ -73,7 +73,7 @@ src
 - prop names comply with PatternFly components naming standards (`variant`, `onClick`, `position`, etc.)
 - the API is maximally simplified and all props are provided with a description
 - it is built on top of existing PatternFly types without prop omitting
-- it is well documented using the PatternFly documentation (`/packages/module/patternfly-docs/content/extensions/virtual-assistant/examples/MyComponent/MyComponent.md`) with examples of all possible use cases (`packages/module/patternfly-docs/content/extensions/virtual-assistant/examples/MyComponent/MyComponent[...]Example.tsx`)
+- it is well documented using the PatternFly documentation (`/packages/module/patternfly-docs/content/extensions/chatbot/examples/MyComponent/MyComponent.md`) with examples of all possible use cases (`packages/module/patternfly-docs/content/extensions/chatbot/examples/MyComponent/MyComponent[...]Example.tsx`)
 
 #### Component API definition example:
 
@@ -91,12 +91,12 @@ export const MyComponent: React.FunctionComponent<MyComponentProps> = ({ customL
 ````
 ---
 section: extensions
-subsection: Virtual assistant
+subsection: ChatBot
 id: MyComponent
 propComponents: ['MyComponent']
 ---
 
-import MyComponent from "@patternfly/virtual-assistant/dist/dynamic/MyComponent";
+import MyComponent from "@patternfly/chatbot/dist/dynamic/MyComponent";
 
 ## Component usage
 
@@ -156,6 +156,7 @@ When adding/making changes to a component, always make sure your code is tested:
 ## Development
 
 - run npm install
+- run npm run build
 - run npm run start to build and start the development server
 
 ## Testing and Linting
