@@ -2,7 +2,15 @@
 
 This repo contains React Data view implementation.
 
+### Branches
+`main` - PatternFly 6 implementation
+
+`v5` - PatternFly 5 implementation
+
+> NOTE: In the case of data view, new features are currently primarily added to `v5` branch to be consumed by Red Hat projects, still using PatternFly 5. In the follow-up step, they should be mirrored to the `main` branch. For bug fixes, it is preferred to fix the bug for both versions (fix in one branch and cherry-pick to another). Pulling new changes from 5 to 6 and vice versa is not recommended using `rebase`. Rather, always cherry-pick specific commits to avoid getting lost in unnecessary conflicts.
+
 ---
+
 ## Contribution guide
 
 ### To add a data view sub-component:
@@ -26,7 +34,7 @@ export interface MyComponentProps {
 const useStyles = createUseStyles({
   myText: {
     fontFamily: 'monospace',
-    fontSize: 'var(--pf-v5-global--icon--FontSize--md)',
+    fontSize: 'var(--pf-v6-global--icon--FontSize--md)',
   },
 })
 
@@ -126,7 +134,7 @@ When adding/making changes to a component, always make sure your code is tested:
 ### Styling:
 - for styling always use JSS
 - new classNames should be named in camelCase starting with the name of a given component and following with more details clarifying its purpose/component's subsection to which the class is applied (`actionMenu`, `actionMenuDropdown`, `actionMenuDropdownToggle`, etc.)
-- do not use `pf-v5-u-XXX` classes, use CSS variables in a custom class instead (styles for the utility classes are not bundled with the standard patternfly.css - it would require the consumer to import also addons.css)
+- do not use `pf-v6-u-XXX` classes, use CSS variables in a custom class instead (styles for the utility classes are not bundled with the standard patternfly.css - it would require the consumer to import also addons.css)
 
 ---
 
