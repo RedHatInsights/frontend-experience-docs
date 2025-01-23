@@ -55,11 +55,19 @@ copy_readme() {
     local repo_dir="${TEMP_DIR}/${repo_name}"
     local readme_path="${repo_dir}/README.md"
     local dest_path="${TARGET_DIR}/${repo_name}.md"
+    local docs_path="${repo_dir}/docs"
+    local nested_docs_path="$TARGET_DIR/${repo_name// /_}"
 
     if [ -f "$readme_path" ]; then
         cp -f "$readme_path" "$dest_path"
     else
         echo "README.md not found in $repo_name!"
+    fi
+
+    if [ -d "$docs_path" ]; then
+        cp -rf "$docs_path" "$nested_docs_path"
+    else 
+        echo "docs directory not found in $repo_name!"
     fi
 }
 

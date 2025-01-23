@@ -24,7 +24,15 @@ nav:
   - Sources UI: services/Sources UI.md
   - Learning resource page: services/Learning resource page.md
   - Payload tracker UI: services/Payload tracker UI.md
-  - UI starter app: services/UI starter app.md
+  - UI starter app: 
+      - Overview: services/UI starter app.md
+      - 'Frontend Operator':
+        - Overview: services/UI_starter_app/frontend-operator/index.md
+        - 'Basic configuration': services/UI_starter_app/frontend-operator/basic-configuration.md
+        - 'UI module configuration': services/UI_starter_app/frontend-operator/modules.md
+        - Navigation: services/UI_starter_app/frontend-operator/navigation.md
+        - 'Services dropdown': services/UI_starter_app/frontend-operator/services.md
+        - Search: services/UI_starter_app/frontend-operator/search.md
   - Frontend components: services/Frontend components.md
   - PF Component groups: services/PF Component groups.md
   - PF Data view: services/PF Data view.md
