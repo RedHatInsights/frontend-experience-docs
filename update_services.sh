@@ -16,7 +16,7 @@ declare -A repos=(
     ["PF Component groups"]="https://github.com/patternfly/react-component-groups.git"
     ["PF Data view"]="https://github.com/patternfly/react-data-view.git"
     ["PF Virtual assistant"]="https://github.com/patternfly/virtual-assistant.git"
-    ["Chrome_service_backend"]="https://github.com/RedHatInsights/chrome-service-backend"
+    ["Chrome service backend"]="https://github.com/RedHatInsights/chrome-service-backend"
 )
 
 TARGET_DIR="pages/services"
