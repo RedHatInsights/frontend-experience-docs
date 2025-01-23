@@ -38,7 +38,7 @@ nav:
   - PF Data view: services/PF Data view.md
   - PF Virtual assistant: services/PF Virtual assistant.md
   - 'Chrome Service Backend':
-    - 'Frontend operator migrations': services/Chrome_Service_Backend/feo-migration-guide.md
+    - 'Frontend operator migrations': services/Chrome_Service_Backend/feo-migration-guide
 - Frontend migrations:
   - Frontend components 3 => 4: frontend-migrations/frontend-components-3-to-4.md
   - Frontend components to PatternFly component groups: frontend-migrations/frontend-components-to-PF-component-groups.md
