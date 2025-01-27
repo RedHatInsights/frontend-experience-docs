@@ -2,7 +2,7 @@ name: Update services docs
 
 on:
   schedule:
-    - cron: '0 1 * * *'  # run every day at 1 AM
+    - cron: '0 1 * * 2'  # run every week on Tuesday at 1 AM
   workflow_dispatch:  # allow manual triggering
 
 jobs:
