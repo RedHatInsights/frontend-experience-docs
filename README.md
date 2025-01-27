@@ -28,7 +28,17 @@ If you'd like to add new content to the documentation (GitHub repository [link](
 1. **Create a new Markdown file (`*.md`)** inside the `/pages` folder.
 2. **Update the `mkdocs.yml` file** to include a reference to your new file, ensuring it gets added to the documentation structure.
 3. **Open a pull request with your changes**.
-4. After the pull request is merged, your changes should be automatically published.
+4. After the pull request is merged, your changes should be automatically published to both stage and prod.
+
+---
+
+## Linked markdown files
+
+Currently, this repository also contains markdown files that are periodically pulled from the repositories of the services maintained by the Platform Experience UI team. These files have the navigation entries defined under the "Services" section in the `mkdocs.yml` file. The [update_services.yml](https://github.com/RedHatInsights/frontend-experience-docs/blob/master/.github/workflows/update_services.yml) workflow with the related [script](https://github.com/RedHatInsights/frontend-experience-docs/blob/master/update_services.sh) takes care of updating the files every week on Tuesday. 
+
+If you need to add a new external file to the repository, please:
+1. Add a new record for the service to the `mkdocs.yml` file.
+2. Enhance the list of repositories in the `update_services.sh` script.
 
 ---
 
