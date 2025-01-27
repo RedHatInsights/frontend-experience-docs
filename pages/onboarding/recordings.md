@@ -16,4 +16,5 @@ Platform Demo recordings: [https://drive.google.com/drive/folders/1cgr3davPCLDEs
 
 ### Other
 - [API Catalog take-over](https://drive.google.com/file/d/1-VZQIuJWDuD_7icuvDUS_0VmaC8cR-s_/view?usp=sharing) (2024-08-29)
+- [Data view demo](https://drive.google.com/file/d/1nfzMRkdUHX2EeKfzJOgVy-uWrWMQB00m/view?usp=sharing)
 
