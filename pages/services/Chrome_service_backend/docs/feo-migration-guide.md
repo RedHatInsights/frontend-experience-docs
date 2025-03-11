@@ -6,13 +6,13 @@ This documentation only describes the migration steps. If you are looking for de
 
 ## Multiple Environment Configurations
 
-The Chrome service has a separate configuration file for each environment. Because the environment configuration is generated based on the existing Frontend resources in a cluster within the frontend namespace, this is no longer a requirement. The recommended approach is to have a single configuration defined by the Frontend resources. If, however, your project requires a separate configuration file for whatever reason, a new deployment file has to be created and referenced in the app interface configuration within the frontend repository.
+The [Chrome service](https://github.com/RedHatInsights/chrome-service-backend) has a separate configuration file for each environment. Because the environment configuration is generated based on the existing Frontend resources in a cluster within the frontend namespace, this is no longer a requirement. The recommended approach is to have a single configuration defined by the Frontend resources. If, however, your project requires a separate configuration file for whatever reason, a new deployment file has to be created and referenced in the app interface configuration within the frontend repository.
 
 ## Frontend CRD location
 
 By default the frontend CRD is located at `deploy/frontend.yaml`. If your CRD is located on a different path **or has the .yml extension**, the build tooling has to be instructed where that file is.
 
-If your file location or name differs form the default configure it in your `fec.config.js`
+If your file location or name differs form the default configure it in your `fec.config.js`. extend the existing `module.exports` with the following attribute:
 ```js
 // fec.config.js
 const path = require('path')
@@ -24,7 +24,7 @@ module.exports = {
 
 ```
 
-**Do not rename the file to match the default!** This can impact your build pipelines and break the deployment pipeline unless changed in app-interface as well. Configure the path tp the CRD instead. 
+**Do not rename the file to match the default!** This can impact your build pipelines and break the deployment pipeline unless changed in app-interface as well. Configure the path to the CRD instead. 
 
 ## Frontend CRD schema validation
 
@@ -48,13 +48,17 @@ If your IDE supports validating yaml files from a json schema, or you need the s
 ```bash
 https://raw.githubusercontent.com/RedHatInsights/frontend-components/refs/heads/master/packages/config-utils/src/feo/spec/frontend-crd.schema.json
 ```
-For VSCode, you can add a following line to the top of the Frontend resources yaml. By default the file should be located at `deploy/frontend.yaml` in your repository.
+For VSCode, you can add a following line to the top of the Frontend resource yaml. By default the file should be located at `deploy/frontend.yaml` in your repository.
 
-> Note: You will also the [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) extension for your VS code
+> Note: You will also need the [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) extension for your VS code
 
 ```yaml
 # yaml-language-server: $schema=https://raw.githubusercontent.com/RedHatInsights/frontend-components/refs/heads/master/packages/config-utils/src/feo/spec/frontend-crd.schema.json
 ```
+
+## Ephemeral environment deployments
+
+To ensure ephemeral deployments are ready foe the new features, please upgrade your bonfire version to `6.0.3`.
 
 ## Enabling FEO for Configuration Generation
 
@@ -72,9 +76,7 @@ objects:
 
 ## fed-modules.json Replacement
 
-The basic configuration of a frontend module was defined in the `static/stable/<env>/modules/fed-modules.json` in the [chrome service backend repository](https://github.com/RedHatInsights/chrome-service-backend). This configuration needs to be split and moved over to the Frontend resource configuration. Usually, frontends have a `deploy/frontend.yaml` file in their repository ([starter app example](https://github.com/RedHatInsights/frontend-starter-app/blob/master/deploy/frontend.yaml)).
-
-Currently, your application may have already defined a "fed-modules.json replacement entry" in your `deploy/frontend.yaml`. **This configuration is likely out of date or refers to the starter app!**. The actual configuration used by Chrome UI prior to migration is located in the chrome service backend repository in the `static/stable/<env>/modules/fed-modules.json` file.
+Currently, your application may have already defined a "fed-modules.json replacement entry" in your `deploy/frontend.yaml`. **This configuration is likely out of date or refers to the starter app!** The actual configuration used by Chrome UI prior to migration is located in the chrome service backend repository in the [`static/stable/<env>/modules/fed-modules.json` file in the chrome service repository](https://github.com/RedHatInsights/chrome-service-backend).
 
 The configuration should be added/updated at `objects[0].spec.module` in your `deploy/frontend.yaml`. Configuration can be simply transferred from the existing `fed-modules.json` from the chrome service backend. You can use JSON -> YAML conversion tool (online or local) to get exact match. If the validation fails because of a attribute not being allowed, remove it from the Frontend resource yaml.
 
@@ -234,18 +236,46 @@ To learn about the navigation and bundle segments and their options, please read
 
 ### Migration Steps:
 
-#### 1. Locate the existing navigation items
+#### 1. Locate the existing navigation items (Chrome service backend repository)
 
 Locate valid navigation items that should be controlled by your UI module and your development team. Navigation files can be found in the chrome service backend repository under
 `static/stable/<env>/navigation/<bundle>-navigation.json`. Your navigation items might be included in multiple navigation files!
 
-#### 2. Ensure navigation items have ID  
+#### 2. Ensure navigation items have ID  (Chrome service backend repository)
 
-Make sure that relevant navigation items in the chrome service backend navigation files have **a unique ID**. The ID attribute is mandatory in the Frontend resource.
+Make sure that relevant navigation items in the chrome service backend navigation files have **a unique ID**. The ID attribute is mandatory in the Frontend resource. If it does not have it, add it and open a Pull request.
 
-#### 3. Transfer the data to Frontend CRD 
+#### 3. Transfer the data to Frontend CRD (Frontend repository)
 
-Transfer the navigation metadata from the chrome service navigation files to the `deploy/frontend.yaml` or its equivalent in your project repository. Bundle segments and navigation segments have to be properly identified. A detailed description of both can be found in the [frontend starter app docs](https://github.com/RedHatInsights/frontend-starter-app/blob/master/docs/frontend-operator/navigation.md#navigation). You can identify relevant navigation items byt the `id`, `href`, or `title` attributes.
+Transfer the navigation metadata from the chrome service navigation files to the `deploy/frontend.yaml` or its equivalent in your project repository. Bundle segments and navigation segments have to be properly identified. A detailed description of both can be found in the [frontend starter app docs](https://github.com/RedHatInsights/frontend-starter-app/blob/master/docs/frontend-operator/navigation.md#navigation). You can identify relevant navigation items by the `id`, `href`, or `title` attributes.
+
+Any navigation items structure is currently accepted as a valid bundle segment navigation item. Attributes related to search and services dropdown are no longer allowed in the Frontend resources navigation items spec. The validation during build time will point these attributes out.
+
+The **segmentId** attribute is a new attribute and does not reflect any existing attribute in navigation items.
+
+The **bundleId** attribute is an id of a bundle (set of UI modules) to which the link should be added. It is the `id` attribute on the top of the bundle navigation file. For example, for the settings bundle, [the bundleId is `settings`](https://github.com/RedHatInsights/chrome-service-backend/blob/main/static/stable/stage/navigation/settings-navigation.json#L2).
+
+```js
+// the https://github.com/RedHatInsights/chrome-service-backend/blob/main/static/stable/stage/navigation/settings-navigation.json#L2 file
+{
+    "id": "settings", // this is the "bundleId" for settings bundle navigation
+    "title": "Settings",
+    "navItems": [
+        {
+// ...
+```
+**The order of left navigation items is determined by the position attribute**.
+
+We recommend leaving gaps of at least 100. This will ensure there is plenty of room for other bundle segments (navigation items) to be injected in between nav items.
+
+Follow a general rule.
+- if the navigation items from a bundle segment are located in the top third, use position numbers between 100 and 1000
+- if the items are somewhat in the middle use position in range from 1000 to 2000
+- if your items are towards the bottom, use position above 2000
+
+You will have to inspect the existing navigation files and decide the position value based on it. It might take a while for these values to settle during the migration window. A collaboration with the platform team might be required.
+
+The **navItems** attribute is an exact match of any array of navItems from existing navigation file. Your bundle segment can have one or many nav items.
 
 Example of a bundle segment from the Learning Resources app:
 
@@ -274,33 +304,6 @@ objects:
               href: /insights/learning-resources
               product: Red Hat Insights
 ```
-
-Any navigation items structure is currently accepted as a valid bundle segment navigation item. Attributes related to search and services dropdown are no longer allowed in the Frontend resources navigation items spec. The validation during build time will point these attributes out.
-
-The **segmentId** attribute is custom attribute and does not reflect any existing attribute in navigation items.
-
-The **bundleId** attribute is an id of a bundle (set of UI modules) to which the link should be added. It is the `id` attribute on the top of the bundle navigation file. For example, for the settings bundle, [the bundleId is `settings`](https://github.com/RedHatInsights/chrome-service-backend/blob/main/static/stable/stage/navigation/settings-navigation.json#L2).
-
-```js
-// the https://github.com/RedHatInsights/chrome-service-backend/blob/main/static/stable/stage/navigation/settings-navigation.json#L2 file
-{
-    "id": "settings", // this is the "bundleId" for settings bundle navigation
-    "title": "Settings",
-    "navItems": [
-        {
-// ...
-```
-
-Make sure to leave enough room in between individual bundle segments. This can be done trough the **position** attribute which dictates the ordering of navigation items.
-
-We recommend leaving gaps of at least 100. This will ensure there is plenty of room for other bundle segments (navigation items) to be injected in between nav items.
-
-Follow a general rule.
-- if the navigation items from a bundle segment are located in the top third, use position numbers between 100 and 1000
-- if the items are somewhat in the middle use position in range from 1000 to 2000
-- if your items are towards the bottom, use position above 2000
-
-You will have to inspect the existing navigation files and decide the position value based on it. It might take a while for these values to settle during the migration window. A collaboration with the platform team might be required.
 
 In case there should be a "foreign" navigation item in your bundle segment with a **flat nav items structure** (not expandable or a group), it is highly recommended to split the navigation items into multiple bundle segments to remove any dependency between the UI modules!
 
@@ -392,11 +395,11 @@ objects:
                 href: /foo/nar/nested-two
 ```
 
-#### 4. Mark the navigation items for replacement 
+#### 4. Mark the navigation items for replacement (Chrome service backend repository)
 
 Mark navigation items for "replacement" inside the chrome service navigation files. Because of a long migration period during which both static and operator-generated configuration files have to be supported, navigation items in a bundle have to be "marked for replacement" within a bundle until the entire bundle navigation is migrated over.
 
-To an **existing top-level navigation item** in a bundle, add a `feoReplacement` attribute. The attribute value is an `id` of a navigation item from a corresponding bundle segment nav item.
+To an **existing top-level navigation item** in a bundle, add a `feoReplacement` attribute. The attribute value is an `id` of a navigation item from a corresponding bundle segment nav item. Once the attribute is added, open a Pull request.
 
 An example:
 
@@ -482,7 +485,7 @@ By statically defined entry, we mean that the tile is defined as an object.
 
 **A link reference service tile entry**
 
-By statically defined entry, we mean that the tile is defined as an object.
+By link references, we mean that the tile is defined as an string.
 
 ```js
 // example of a link reference service tile entry
@@ -542,7 +545,7 @@ To find relevant service tiles you will have to consult with your team/managers/
 
 ![Section group description](./img/section-group.png)
 
-In the services.json there is a nested structure of links. Firs level is a section, second level is a group a the leafs of the `links` array are individual tiles.
+In the services.json there is a nested structure of links. First level is a section, second level is a group a the leafs of the `links` array are individual tiles.
 ```js
 [
   {
@@ -585,16 +588,21 @@ Example migration:
   {
     "description": "Solve problems once, in one place, and scale up.",
     "icon": "AutomationIcon",
-    // This is a section attribute
+    // This is the "section" attribute
     "id": "automation",
     "links": [
       {
-        // this is a group attribute
-        "id": "rhel",
+        // this is the "group" attribute
+        "id": "ansible",
         "isGroup": true,
         "links": [
           {
-            // example of unnecessary attribute for the service tile
+            "id": "remediations",
+            "description": "Use Ansible Playbooks to resolve configuration, security, and compliance issues identified on your Red Hat Enterprise Linux systems.",
+            "href": "/insights/remediations",
+            "icon": "InsightsIcon",
+            "title": "Remediations",
+            // Rest of the attributes are obsolete and should not be copied
             "alt_title": [
               "Remediate",
               "playbook",
@@ -608,14 +616,9 @@ Example migration:
               "Ansible",
               "patch"
             ],
-            "appId": "remediations",
-            "description": "Use Ansible Playbooks to resolve configuration, security, and compliance issues identified on your Red Hat Enterprise Linux systems.",
-            "href": "/insights/remediations",
-            "icon": "InsightsIcon",
-            "id": "remediations",
+            "appId": "remediations"
             "product": "Red Hat Insights",
-            "subtitle": "Red Hat Insights for RHEL",
-            "title": "Remediations"
+            "subtitle": "Red Hat Insights for RHEL"
           },
           // ... other configuration
         ]
@@ -657,6 +660,8 @@ In the FEO approach, search entries have to be explicitly defined. The data is n
 1. Make sure the services dropdown tiles of the affected UI module were removed from the `services.json` template and from the static `static-services-entries.json` files.
 2. Define search entries in the `deploy/frontend.yaml` file or its equivalent.
 
+**This is a good time to revisit available search entries!** We recommended discussing with your team and BU, and create the search entries from scratch.
+
 Example of search entries config:
 
 ```yaml
@@ -676,7 +681,7 @@ objects:
 
 For full documentation about available attributes, please read [frontend starter app docs](https://github.com/RedHatInsights/frontend-starter-app/blob/master/docs/frontend-operator/index.md).
 
-## CRD Clean UP
+## Frontend.yaml CRD Clean UP
 
 A few attributes in your updated CRD might be obsolete. The validation during build will pick them up. Or if your IDE is using the schema for validation, it should mark them as "additional properties", which are not allowed.
 
