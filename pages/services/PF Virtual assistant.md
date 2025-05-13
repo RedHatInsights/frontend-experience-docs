@@ -1,5 +1,5 @@
 # PatternFly ChatBot
-  
+
 This PatternFly extension library provides components based on PatternFly 6 that can be used to build chatbots.
 
 ---
@@ -30,7 +30,7 @@ import '@patternfly/chatbot/dist/css/main.css';
 #### Example component:
 
 ```
-import * as React from 'react';
+import type { FunctionComponent } from 'react';
 import { Text } from '@patternfly/react-core';
 
 // do not forget to export your component's interface
@@ -40,7 +40,7 @@ export interface MyComponentProps {
 
 
 // do not use the named export of your component, just a default one
-const MyComponent: React.FunctionComponent<MyComponentProps> = () => {
+const MyComponent: FunctionComponent<MyComponentProps> = () => {
 
   return (
     <Text>
@@ -83,7 +83,7 @@ export interface MyComponentProps extends ButtonProps {
     customLabel: Boolean
 };
 
-export const MyComponent: React.FunctionComponent<MyComponentProps> = ({ customLabel, ...props }) => ( ... );
+export const MyComponent: FunctionComponent<MyComponentProps> = ({ customLabel, ...props }) => ( ... );
 ```
 
 #### Markdown file example:
@@ -115,9 +115,9 @@ MyComponent has been created to demo contributing to this repository.
 Note: You'll need to add any imports required here in the parent folder's markdown file as well.
 
 ```
-import React from 'react';
+import type { FunctionComponent } from 'react';
 
-const MyComponentExample: React.FunctionComponent = () => (
+const MyComponentExample: FunctionComponent = () => (
   <MyComponent customLabel="My label">
 );
 
