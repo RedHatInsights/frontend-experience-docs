@@ -13,6 +13,7 @@ nav:
   - Platform styling: onboarding/platform-styling.md
 - Testing:
   - Testing strategy: testing/testing-strategy.md
+  - E2E Test Pipelines: testing/e2e-pipeline.md
 # when making changes to "Services:" subitems, please also edit the update_services.sh script
 - Services:
   - Landing page UI: services/Landing page UI.md
