@@ -1,5 +1,11 @@
 # Reusable E2E Test Pipeline (Playwright)
 
+This document provides a conceptual overview of the reusable E2E test pipeline for Playwright-based testing. It explains the architecture, approach, and key concepts behind running full-flow end-to-end tests in PR pipelines. For detailed implementation steps and configuration examples, see the [Setup Guide](https://docs.google.com/document/d/1JnOJ5w4Q-OW3vlvHhTxhzOep6A2sveJYWQrX-HOH280/edit?usp=sharing).
+
+**Target Audience:** Developers evaluating whether to adopt this pipeline for their repository, or team members seeking to understand how the E2E testing infrastructure works.
+
+---
+
 End-to-End Playwright tests are configured to run in the PR pipeline for the following repositories at time of writing.
 
 * insights-chrome
@@ -7,6 +13,35 @@ End-to-End Playwright tests are configured to run in the PR pipeline for the fol
 * frontend-starter-app [in progress]
 
 As we expand our E2E test coverage with Playwright, more repositories will join the list.
+
+---
+
+## Quick Reference
+
+**Getting Started:**
+- **[Setup Guide](https://docs.google.com/document/d/1JnOJ5w4Q-OW3vlvHhTxhzOep6A2sveJYWQrX-HOH280/edit?usp=sharing)** - Complete implementation guide for adding the pipeline to your repository
+- **[NotebookLM Q&A](https://notebooklm.google.com/notebook/7a32f12f-9b07-4cb3-b966-3af6caad5d86)** - AI assistant for pipeline-related questions
+
+**Additional Resources:**
+- [Platform Experience Testing Strategy](testing-strategy.md) - Broader testing philosophy and approach
+- Contact: Platform Experience UI team on Slack (`@platform-experience-ui` in `#forum-consoledot-ui`)
+
+**Note:** Google doc links require Red Hat access.
+
+---
+
+## Prerequisites
+
+Before working with this pipeline, you should have familiarity with:
+
+- **Tekton** - Pipeline orchestration and task definitions
+- **Kubernetes** - Container orchestration, ConfigMaps, and pod management
+- **Playwright** - End-to-end testing framework
+- **Caddy** - Web server and proxy configuration
+- **Konflux** - Build and CI/CD platform
+- **Shell scripting** (bash/sh) - Used throughout the pipeline for orchestration
+
+---
 
 ## Conceptual Overview
 
@@ -46,13 +81,26 @@ when Konflux executes the e2e-tests part of the pipeline. The process consists o
 2. the test application's assets (from the trusted artifact)
 3. the frontend developer proxy (from the image repo)
 
+![E2E Pipeline Architecture](images/pipeline_diagram.png)
+
 Because the sidecar containers all run asynchronously of the main container, there is some shell scripting involved that makes the various containers wait
 until the desired state is reached before executing their portion of the workload. For example, the frontend developer proxy needs the
 test application container and the chrome assets container, so it must wait until each of these is responding to
 requests for assets.
 
-The main test container waits for the dev proxy to be responsive to requests (via stage.foo.redhat.com) before firing up the
-test run. The run script tries to provide meaningful debug output in the console during execution.
+The main test container waits for the dev proxy to be responsive to requests before firing up the
+test run. The pipeline uses `stage.foo.redhat.com` as the hostname, which resolves to localhost (`127.0.0.1` or `::1` for IPv6) within the pipeline environment. The run script tries to provide meaningful debug output in the console during execution.
+
+## Test Execution and Success Criteria
+
+The E2E tests execute as part of the pull request pipeline, running automatically when PRs are created or updated. These tests are designed to validate critical user flows and ensure that new changes don't break existing functionality.
+
+**Pipeline Behavior:**
+- Tests run on every PR commit as part of the automated CI/CD process
+- Test results are reported back to the PR, providing visibility into the health of the changes
+- Failing tests indicate potential issues that should be addressed before merging
+
+For broader context on how E2E testing fits into the overall testing strategy and release criteria, see the [Platform Experience Testing Strategy](testing-strategy.md).
 
 ## Shared Pipeline Definition
 
@@ -74,7 +122,3 @@ The README files of the various repositories are also useful, including:
 
 * [frontend-development-proxy](https://github.com/RedHatInsights/frontend-development-proxy/blob/main/README.md)
 * [tekton-playwright-e2e](https://github.com/catastrophe-brandon/tekton-playwright-e2e/blob/main/README.md)
-
-In addition, readings about Tekton, Minikube, Caddy, and Konflux are highly recommended.
-
-At a rudimentary level, familiarity with shell scripting (bash/sh) and Kubernetes are both required and heavily used within the pipeline.
