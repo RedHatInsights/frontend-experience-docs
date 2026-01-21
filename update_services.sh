@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Check bash version (requires 4.0+ for associative arrays)
+if ((BASH_VERSINFO[0] < 4)); then
+    echo "Error: This script requires Bash 4.0 or higher (current version: $BASH_VERSION)"
+    echo "macOS ships with Bash 3.2. Install a newer version with: brew install bash"
+    echo "Then run this script with: /opt/homebrew/bin/bash $0"
+    exit 1
+fi
+
 # when editing repositories, make sure to update mkdocs.yml accordingly
 declare -A repos=(
     ["Landing page UI"]="https://github.com/RedHatInsights/landing-page-frontend.git"
