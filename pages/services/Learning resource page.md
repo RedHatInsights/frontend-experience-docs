@@ -30,6 +30,11 @@ Update `config/dev.webpack.config.js` according to your application URL. [Read m
 
 `npm run verify` will run `npm run lint` (eslint) and `npm test` (Jest)
 
+## Documentation
+
+- **[Technical Reference](./docs/TECHNICAL_REFERENCE.md)** - Comprehensive technical documentation covering architecture, deployment, data structures, and API integration
+- **[Creator Guide](./docs/CREATOR_GUIDE.md)** - Complete guide for creating learning resources using the Wizard and YAML Editor
+
 ## Deploying
 
 - The starter repo uses Travis to deploy the webpack build to another Github repo defined in `.travis.yml`
