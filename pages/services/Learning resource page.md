@@ -47,3 +47,72 @@ Update `config/dev.webpack.config.js` according to your application URL. [Read m
     - `prod-stable` (deployed by pushing to `prod-stable` on this repo)
 - Travis uploads results to RedHatInsight's [codecov](https://codecov.io) account. To change the account, modify CODECOV_TOKEN on https://travis-ci.com/.
 
+## HelpPanelLink
+
+A link component that opens the help panel drawer with specific content in a new tab. Uses Chrome's drawer API to open the help panel.
+
+**Usage via Module Federation with Scalprum:**
+
+```tsx
+import React from 'react';
+import { useScalprum } from '@scalprum/react-core';
+import AsyncComponent from '@redhat-cloud-services/frontend-components/AsyncComponent';
+
+function MyComponent() {
+  const scalprum = useScalprum();
+
+  return (
+    <p>
+      Need help?{' '}
+      <AsyncComponent
+        appName="learningResources"
+        module="./HelpPanelLink"
+        scope="learningResources"
+        ErrorComponent={<span>Error loading help link</span>}
+        {...scalprum}
+        title="Configure Slack Integration"
+        tabType="learn"
+        url="https://docs.example.com/slack-config"
+      >
+        Learn how to configure Slack
+      </AsyncComponent>
+    </p>
+  );
+}
+```
+
+**Alternative: Using custom content instead of URL**
+
+```tsx
+<AsyncComponent
+  appName="learningResources"
+  module="./HelpPanelLink"
+  scope="learningResources"
+  ErrorComponent={<span>Error loading help link</span>}
+  {...scalprum}
+  title="Getting Started"
+  tabType="learn"
+  content={
+    <div>
+      <h3>Welcome!</h3>
+      <p>Here's how to get started...</p>
+    </div>
+  }
+>
+  View getting started guide
+</AsyncComponent>
+```
+
+**Props:**
+- `title: string` - Title for the tab
+- `tabType: 'learn' | 'api' | 'kb' | 'support' | 'search'` - Type of content tab
+- `url?: string` - URL to display in iframe (note: may be blocked by X-Frame-Options)
+- `content?: ReactNode` - Custom React content to display (alternative to URL)
+- `children: ReactNode` - Link text
+- `variant?: ButtonProps['variant']` - Button variant (default: `'link'`)
+- `className?: string` - Additional CSS class
+- `data-ouia-component-id?: string` - Testing identifier
+
+**Note:** Must be used within insights-chrome environment. The component uses `chrome.drawerActions.toggleDrawerContent()` to open the help panel.
+
+
