@@ -50,7 +50,92 @@ Note: All functions can use the negated form by prefixing the name with `!`. e.g
 
 To enable your form parts in user preferences we need the application name to be listed in the `config.json` file.
 
-## Dev Instructions
+## Getting Started
 
-* `npm install`
-* `npm run start`
+### Prerequisites
+- Node.js >=15.14.0
+- npm >=7.24.2
+
+### Development Setup
+
+```bash
+# Install dependencies
+npm install
+
+# Install git hooks (one-time setup)
+npm run prepare
+
+# Start development server
+npm start
+
+# Run tests
+npm test
+
+# Run linting
+npm run lint
+npm run lint:js:fix  # Auto-fix linting issues
+
+# Run Storybook
+npm run storybook
+
+# Build for production
+npm run build
+```
+
+## Contributing
+
+### Branch Workflow
+
+Always create a feature branch for your work:
+
+```bash
+git checkout -b feature/your-feature-name
+```
+
+Use descriptive branch names like `feature/add-email-preferences` or `fix/checkbox-state-bug`.
+
+### Commit Messages
+
+We use [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+<type>: <description>
+
+Examples:
+feat: add email notification preferences
+fix: resolve checkbox state persistence bug
+docs: update README with setup instructions
+```
+
+**Types:** `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
+
+Commit messages are validated by commitlint via git hooks.
+
+### Pull Request Process
+
+1. Update your branch with latest changes from master
+2. Ensure all tests pass (`npm test`)
+3. Ensure linting passes (`npm run lint`)
+4. Push your branch and create a PR
+5. Wait for CI checks and code review
+
+### Code Quality
+
+- **ESLint**: Automatically runs on staged files before commit
+- **Stylelint**: Validates SCSS files
+- **Tests**: Write tests for new features
+- **Commitlint**: Enforces conventional commit format
+
+Git hooks will automatically check your code before commits and pushes.
+
+## Testing
+
+- **Unit tests**: Jest + React Testing Library
+- **Visual testing**: Storybook + Chromatic
+- Run `npm test` to execute tests locally
+
+## Related Documentation
+
+- [Data Driven Forms](https://data-driven-forms.org/)
+- [insights-chrome permissions](https://github.com/RedHatInsights/insights-chrome#permissions)
+- [cloud-services-config](https://github.com/RedHatInsights/cloud-services-config)
