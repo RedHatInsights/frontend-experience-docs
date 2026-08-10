@@ -74,8 +74,25 @@ copy_readme() {
     fi
 
     if [ -d "$docs_path" ]; then
-        cp -rf "$docs_path" "$nested_docs_path"
-    else 
+        # Only copy allowed file types to mitigate supply chain risk (CWE-829).
+        # An allow-list prevents arbitrary non-documentation files from being
+        # ingested into this repository via the upstream docs/ trees.
+        mkdir -p "$nested_docs_path"
+        find "$docs_path" -type f \( \
+            -iname '*.md' -o \
+            -iname '*.png' -o \
+            -iname '*.jpg' -o \
+            -iname '*.jpeg' -o \
+            -iname '*.gif' -o \
+            -iname '*.svg' -o \
+            -iname '*.webp' \
+        \) | while IFS= read -r src_file; do
+            rel_path="${src_file#"$docs_path"/}"
+            dest_file="$nested_docs_path/$rel_path"
+            mkdir -p "$(dirname "$dest_file")"
+            cp -f "$src_file" "$dest_file"
+        done
+    else
         echo "docs directory not found in $repo_name!"
     fi
 }
