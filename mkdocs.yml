@@ -42,6 +42,73 @@ nav:
     - 'Frontend operator migrations': services/Chrome_service_backend/feo-migration-guide
 - Platform Architecture:
   - Overview: platform/index.md
+  - Services Portfolio:
+    - Components: platform/component-catalog.md
+    - Capability Details:
+      - Chrome Service: platform/components/chrome-service.md
+      - Navigation: platform/components/navigation.md
+      - Dynamic Navigation Infrastructure: platform/components/dynamic-navigation.md
+      - Search: platform/components/search.md
+      - Internationalization: platform/components/internationalization.md
+      - Accessibility: platform/components/accessibility.md
+      - Tutorials & Quickstarts: platform/components/tutorials-and-quickstarts.md
+      - Learning Resources & Help: platform/components/learning-resources-help.md
+      - PDF Generation: platform/components/pdf-generator.md
+      - Feedback Collection: platform/components/feedback.md
+      - Virtual Assistant: platform/components/virtual-assistant.md
+      - Pluggable UI Framework: platform/components/pluggable-ui-framework.md
+      - Dynamic Plugin SDK Integration: platform/components/dynamic-plugin-sdk.md
+      - Data Driven Forms: platform/components/data-driven-forms.md
+      - Widget Layout: platform/components/widget-layout-system.md
+      - Push Cache: platform/components/push-cache.md
+      - Akamai Integration: platform/components/akamai-integration.md
+      - Stratosphere UX: platform/components/stratosphere.md
+      - Support Case Integration: platform/components/support-case-integration.md
+      - Scheduler UI: platform/components/scheduler-ui.md
+      - Analytics Integration: platform/components/analytics-integration.md
+      - Feature Flags: platform/components/feature-flags.md
+      - Service Account Management: platform/components/service-accounts.md
+      - OCM API Gateway: platform/components/uhc-gateway.md
+    - Stewardship Details:
+      - Scalprum: platform/components/scalprum.md
+      - CDN Cache Purging: platform/components/frontend-cache-bust.md
+      - Frontend Environment Configuration: platform/components/frontend-environments.md
+      - Frontend Builder Image: platform/components/frontend-build-container.md
+      - Frontend Runtime Image: platform/components/caddy-ubi.md
+      - Deployment and Release Configuration: platform/components/deployment-release-configuration.md
+    - Backing Implementations:
+      - Console Shell: platform/components/insights-chrome.md
+      - Chrome Backend: platform/components/chrome-service-backend.md
+      - Frontend Operator: platform/components/frontend-operator.md
+      - Frontend Configuration Publisher: platform/components/frontend-config.md
+      - Frontend Asset Proxy: platform/components/frontend-asset-proxy.md
+      - Asset Publication and Version Retention: platform/components/valpop.md
+      - Shared Frontend Assets: platform/components/frontend-assets.md
+      - Shared Frontend Components: platform/components/frontend-components.md
+      - Widget Layout Frontend: platform/components/widget-layout.md
+      - Generated API Clients: platform/components/javascript-clients.md
+      - AI Web Clients: platform/components/ai-web-clients.md
+      - Learning Resources: platform/components/learning-resources.md
+      - Quickstarts Service: platform/components/quickstarts.md
+      - Widget Layout Backend: platform/components/widget-layout-backend.md
+      - Virtual Assistant Frontend: platform/components/astro-virtual-assistant-frontend.md
+      - Astro Assistant Backend: platform/components/astro-virtual-assistant-v2.md
+      - HCC AI Assistant: platform/components/hcc-ai-assistant.md
+      - Frontend Starter Application: platform/components/frontend-starter-app.md
+      - Frontend Build Tooling: platform/components/insights-frontend-builder-common.md
+      - Local Development Proxy: platform/components/frontend-development-proxy.md
+      - Shared CI Workflows: platform/components/shared-workflows.md
+      - API Client Integration Tests: platform/components/javascript-clients-tests.md
+      - Frontend Test Helpers: platform/components/frontend-test-utils.md
+      - Repository Security Scanner: platform/components/frontend-repo-security-scanner.md
+      - Analytics Verification: platform/components/analytics-e2e-flow-verification-tooling.md
+      - Internationalization Tooling: platform/components/i18n-tooling.md
+      - AI Development Toolkit: platform/components/platform-frontend-ai-toolkit.md
+      - Framework Developer Bot: platform/components/hcc-framework-agent-dev.md
+      - Frontend Experience Documentation: platform/components/frontend-experience-docs.md
+      - Console Enhancement Tracking: platform/components/consoles-enhancements.md
+      - Weekly Status Reporting: platform/components/weekly-status.md
+      - Browser Feature-Flag Proxy: platform/components/unleash-proxy.md
   - Architecture Overview: platform/architecture-overview.md
   - insights-chrome (Shell): platform/insights-chrome.md
   - Frontend Operator: platform/frontend-operator.md

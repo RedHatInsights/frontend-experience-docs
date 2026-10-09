@@ -4,10 +4,13 @@ Comprehensive architectural documentation for `console.redhat.com` — the Red H
 
 These docs are split by domain so AI agents and developers can load only the context they need.
 
+For the Services portfolio, start with the [component table](component-catalog.md) for platform capabilities, short descriptions, owners, and direct links to details. Component pages in `components/` contain their backing repositories, relevant dependencies, owner references, and source evidence. The inventory was reviewed on 2026-10-09. Verify older domain descriptions against the pinned source evidence in the backing implementation records before using them as current operational contracts.
+
 ## Documents
 
 | Document | When to read |
 |----------|-------------|
+| [Services Components](component-catalog.md) | Capability-level component and stewardship tables: purpose, owner, and direct links to detail pages |
 | [Architecture Overview](architecture-overview.md) | High-level diagrams, request flow, infrastructure stack, key metrics |
 | [insights-chrome (Shell)](insights-chrome.md) | Modifying the application shell, layouts, state management, component tree |
 | [Frontend Operator](frontend-operator.md) | CRD schemas, reconciliation logic, config aggregation, deployment model |
@@ -28,6 +31,9 @@ Add to your `CLAUDE.md`:
 ## Platform Architecture Reference
 
 Split docs in `frontend-experience-docs/pages/platform/`. Read on demand:
+- Component names, purpose, or team ownership → read `pages/platform/component-catalog.md`
+- Backing repositories, lifecycle, or ownership evidence → follow the capability links in `pages/platform/component-catalog.md` to `pages/platform/components/`
+- Dependencies or integration boundaries → read the relevant component's detail page in `pages/platform/components/`
 - Modifying chrome shell → read `pages/platform/insights-chrome.md`
 - CRDs or operator work → read `pages/platform/frontend-operator.md`
 - Navigation or auth/RBAC → read `pages/platform/navigation-and-auth.md`
@@ -41,4 +47,4 @@ Split docs in `frontend-experience-docs/pages/platform/`. Read on demand:
 ---
 
 *Maintainer: Console Framework Team (Platform Experience Services)*  
-*Last updated: 2026-07-08*
+*Last updated: 2026-10-09*
