@@ -16,6 +16,10 @@ Checks repository settings, GitHub Actions, branch protection, and related build
 
 - [frontend-repo-security-scanner](https://github.com/RedHatInsights/frontend-repo-security-scanner)
 
+## Related component
+
+[Frontend API and Quality Tooling](frontend-api-and-quality-tooling.md) groups this implementation with generated API clients, client integration tests, and frontend test helpers.
+
 ## Evidence and ownership
 
 Portfolio inclusion was reviewed against the [Services team assignments](https://github.com/orgs/RedHatInsights/teams/experience-services-committers/repositories) on 2026-10-09. Services means Platform Experience Services / Console Framework.

@@ -16,6 +16,10 @@ Integration tests for generated API clients.
 
 - [javascript-clients-tests](https://github.com/RedHatInsights/javascript-clients-tests)
 
+## Related component
+
+[Frontend API and Quality Tooling](frontend-api-and-quality-tooling.md) groups this implementation with generated API clients, frontend test helpers, and repository security checks.
+
 ## Evidence and ownership
 
 Portfolio inclusion was reviewed against the [Services team assignments](https://github.com/orgs/RedHatInsights/teams/experience-services-committers/repositories) on 2026-10-09. Services means Platform Experience Services / Console Framework.

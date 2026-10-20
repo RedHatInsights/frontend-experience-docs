@@ -16,6 +16,10 @@ Cross-component architecture, onboarding, and navigation to repository-owned doc
 
 - [frontend-experience-docs](https://github.com/RedHatInsights/frontend-experience-docs)
 
+## Related component
+
+[Frontend Development Tooling](frontend-development-tooling.md) groups this documentation hub with application scaffolding, build tooling, the local development proxy, and shared CI workflows. Documentation covers architecture and onboarding across components.
+
 ## Evidence and ownership
 
 Portfolio inclusion was reviewed against the [Services team assignments](https://github.com/orgs/RedHatInsights/teams/experience-services-committers/repositories) on 2026-10-09. Services means Platform Experience Services / Console Framework.

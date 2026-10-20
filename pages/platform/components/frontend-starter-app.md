@@ -16,6 +16,10 @@ Starter application and frontend-platform integration examples.
 
 - [frontend-starter-app](https://github.com/RedHatInsights/frontend-starter-app)
 
+## Related component
+
+[Frontend Development Tooling](frontend-development-tooling.md) groups this application template with build tooling, the local development proxy, shared CI workflows, and developer documentation.
+
 ## Evidence and ownership
 
 Portfolio inclusion was reviewed against the [Services team assignments](https://github.com/orgs/RedHatInsights/teams/experience-services-committers/repositories) on 2026-10-09. Services means Platform Experience Services / Console Framework.

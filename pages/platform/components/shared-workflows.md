@@ -16,6 +16,10 @@ Reusable GitHub Actions workflows, supporting scripts, PR templates, and Renovat
 
 - [shared-workflows](https://github.com/RedHatInsights/shared-workflows)
 
+## Related component
+
+[Frontend Development Tooling](frontend-development-tooling.md) groups this implementation with frontend build tooling and the local development proxy.
+
 ## Evidence and ownership
 
 Portfolio inclusion was reviewed against the [Services team assignments](https://github.com/orgs/RedHatInsights/teams/experience-services-committers/repositories) on 2026-10-09. Services means Platform Experience Services / Console Framework.

@@ -16,6 +16,10 @@ Shared Playwright utilities and test helpers.
 
 - [frontend-test-utils](https://github.com/RedHatInsights/frontend-test-utils)
 
+## Related component
+
+[Frontend API and Quality Tooling](frontend-api-and-quality-tooling.md) groups this implementation with generated API clients, client integration tests, and repository security checks.
+
 ## Evidence and ownership
 
 Portfolio inclusion was reviewed against the [Services team assignments](https://github.com/orgs/RedHatInsights/teams/experience-services-committers/repositories) on 2026-10-09. Services means Platform Experience Services / Console Framework.

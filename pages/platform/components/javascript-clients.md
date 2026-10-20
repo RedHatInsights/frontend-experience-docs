@@ -16,6 +16,10 @@ JavaScript/TypeScript clients for backend OpenAPI specifications.
 
 - [javascript-clients](https://github.com/RedHatInsights/javascript-clients)
 
+## Related component
+
+[Frontend API and Quality Tooling](frontend-api-and-quality-tooling.md) groups this implementation with API client integration tests, frontend test helpers, and repository security checks.
+
 ## Evidence and ownership
 
 Portfolio inclusion was reviewed against the [Services team assignments](https://github.com/orgs/RedHatInsights/teams/experience-services-committers/repositories) on 2026-10-09. Services means Platform Experience Services / Console Framework.

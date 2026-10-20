@@ -1,4 +1,4 @@
-# Report Scheduling UI
+# Scheduler UI
 
 **Implementation ID:** S17  
 **Owner:** Services (portfolio ownership).  
@@ -36,7 +36,7 @@ Implementation guides and operational runbooks are maintained in the backing sou
 
 **Capability ID:** F21
 
-Frontend and drawer integration are Services entries; backend owner must be referenced.
+Frontend and drawer integration with [Console Shell](insights-chrome.md) are Services entries; backend owner must be referenced.
 
 ## Dependencies and owner references
 

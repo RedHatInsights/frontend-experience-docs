@@ -1,4 +1,4 @@
-# OCM API Gateway and Portal
+# OCM API Gateway
 
 **Implementation ID:** S35  
 **Owner:** Services (portfolio ownership).  

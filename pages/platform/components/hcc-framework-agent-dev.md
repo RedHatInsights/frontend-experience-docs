@@ -16,6 +16,10 @@ Framework-team developer-bot runner and instance-specific configuration.
 
 - [hcc-framework-agent-dev](https://github.com/RedHatInsights/hcc-framework-agent-dev)
 
+## Related component
+
+[AI Developer Tooling](ai-developer-tooling.md) groups this implementation with the AI development toolkit's skills, prompts, and helpers.
+
 ## Implementation context
 
 S31 consumes the shared [Řehoř framework](https://github.com/OpenShift-Fleet/rehor). The former `RedHatInsights/platform-frontend-ai-dev` repository URL redirects there; the framework is recorded as a dependency, not another repository in the Services team hierarchy.

@@ -16,6 +16,10 @@ Shared frontend build and container-packaging scripts.
 
 - [insights-frontend-builder-common](https://github.com/RedHatInsights/insights-frontend-builder-common)
 
+## Related component
+
+[Frontend Development Tooling](frontend-development-tooling.md) groups this implementation with the local development proxy and shared CI workflows.
+
 ## Evidence and ownership
 
 Portfolio inclusion was reviewed against the [Services team assignments](https://github.com/orgs/RedHatInsights/teams/experience-services-committers/repositories) on 2026-10-09. Services means Platform Experience Services / Console Framework.

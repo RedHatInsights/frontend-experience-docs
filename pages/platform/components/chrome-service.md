@@ -42,7 +42,7 @@ Services owns shell integration; upstream providers own their services.
 
 **Capability ID:** F22
 
-Chrome hosts the drawer; notification-specific modules are supplied by the UI application.
+Chrome hosts the drawer; [Learning Resources](learning-resources.md) supplies the help-panel experience, and notification-specific modules are supplied by the UI application.
 
 <a id="f23"></a>
 
@@ -90,7 +90,7 @@ Shell widgets/state and backend user configuration.
 
 **Capability ID:** F28
 
-Shared visual behavior and preferences.
+Shared visual behavior and preferences, with shared UI support from [Shared Frontend Components](frontend-components.md).
 
 <a id="f29"></a>
 

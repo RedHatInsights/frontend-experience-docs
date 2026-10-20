@@ -3,7 +3,7 @@
 **Maintainer:** Platform Experience Services / Console Framework  
 **Reviewed:** 2026-10-09
 
-This is the capability-level component list, following the legacy component names. Each component links to details about its responsibility, backing repositories, and dependencies.
+This catalog lists platform capabilities, developer tooling, engineering operations, and shared stewardship components, following the legacy component names. Each entry links to details about its responsibility, backing repositories, and dependencies. Component detail pages link to their backing implementation records; the site navigation also provides access to implementation details.
 
 **Owner key:** Services means Platform Experience Services / Console Framework. Owners are recorded at team/integration level; individual detail pages mark contacts and stewardship that need confirmation.
 
@@ -22,7 +22,7 @@ This is the capability-level component list, following the legacy component name
 | [PDF Generation](components/pdf-generator.md) | Generates downloadable reports for console applications. | Services |
 | [Feedback Collection](components/feedback.md) | Collects user feedback and connects feedback integrations. | Services integration; backend owner to confirm |
 | [Virtual Assistant](components/virtual-assistant.md) | Shared conversational assistance and AI integrations. | Services |
-| [Pluggable UI Framework](components/pluggable-ui-framework.md) | Loads independent applications and shares platform APIs and state. | Services integration; Scalprum stewardship to confirm |
+| [Pluggable UI Framework](components/pluggable-ui-framework.md) | Loads independent applications and shares platform APIs, state, and frontend assets. | Services integration; Scalprum stewardship to confirm |
 | [Widget Layout](components/widget-layout-system.md) | Customizable dashboards, widgets, and persisted layouts. | Services |
 | [Push Cache](components/push-cache.md) | Publishes, retains, and serves frontend asset versions. | Services integration; shared storage providers |
 | [Akamai Integration](components/akamai-integration.md) | Console CDN configuration, caching, and purge integration. | Services integration; CDN/DNS providers |
@@ -32,8 +32,11 @@ This is the capability-level component list, following the legacy component name
 | [Analytics Integration](components/analytics-integration.md) | Shared analytics events, provider integration, and delivery validation. | Services integration; vendor/account owners |
 | [Feature Flags](components/feature-flags.md) | Evaluates feature availability for console users and applications. | Services proxy/integration; Unleash provider |
 | [Service Account Management](components/service-accounts.md) | Console experience for managing service accounts. | Services frontend |
-| [Akamai Integration](components/akamai-integration.md) | Console CDN configuration and delivery integration. | Services integration; CDN/DNS providers |
 | [OCM API Gateway](components/uhc-gateway.md) | Routes OCM API traffic and presents API specifications. | Services |
+| [Frontend Development Tooling](components/frontend-development-tooling.md) | Application scaffolding, build scripts, local development proxy, reusable CI workflows, and developer documentation. | Services |
+| [Frontend API and Quality Tooling](components/frontend-api-and-quality-tooling.md) | Generated API clients, client integration tests, shared test helpers, and repository security checks. | Services |
+| [AI Developer Tooling](components/ai-developer-tooling.md) | Skills, prompts, and helpers for AI-assisted development, plus framework-team developer-bot automation. | Services |
+| [Engineering Operations](components/engineering-operations.md) | Console enhancement tracking and team status reporting. | Services |
 
 ## Stewardship components
 
@@ -41,6 +44,7 @@ Shared stewardship entries use the same detail pages where they overlap a platfo
 
 | Component | Short description | Stewardship owner |
 |-----------|-------------------|-------------------|
+| [Dynamic Plugin SDK Integration](components/dynamic-plugin-sdk.md) | Compatibility with OpenShift dynamic plugins. | OpenShift SDK maintainers; Services integration |
 | [Data Driven Forms](components/data-driven-forms.md) | Shared schema-driven form renderer and mappers. | Services attributed by guide; stewardship to confirm |
 | [Scalprum](components/scalprum.md) | Shared micro-frontend loading, remote hooks, and state framework. | Steward to confirm; Services integration |
 | [CDN Cache Purging](components/frontend-cache-bust.md) | Containerized cache-purge tooling used by frontend delivery. | To confirm |
@@ -48,4 +52,3 @@ Shared stewardship entries use the same detail pages where they overlap a platfo
 | [Frontend Builder Image](components/frontend-build-container.md) | Shared container environment for frontend builds. | To confirm |
 | [Frontend Runtime Image](components/caddy-ubi.md) | Shared Caddy-based container image for frontends. | To confirm |
 | [Deployment and Release Configuration](components/deployment-release-configuration.md) | Services application, deployment, and pipeline configuration. | Services configuration; shared platform owners; scope to confirm |
-| [Dynamic Plugin SDK Integration](components/dynamic-plugin-sdk.md) | Compatibility with OpenShift dynamic plugins. | OpenShift SDK maintainers; Services integration |

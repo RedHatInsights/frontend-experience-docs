@@ -69,6 +69,10 @@ nav:
       - Feature Flags: platform/components/feature-flags.md
       - Service Account Management: platform/components/service-accounts.md
       - OCM API Gateway: platform/components/uhc-gateway.md
+      - Frontend Development Tooling: platform/components/frontend-development-tooling.md
+      - Frontend API and Quality Tooling: platform/components/frontend-api-and-quality-tooling.md
+      - AI Developer Tooling: platform/components/ai-developer-tooling.md
+      - Engineering Operations: platform/components/engineering-operations.md
     - Stewardship Details:
       - Scalprum: platform/components/scalprum.md
       - CDN Cache Purging: platform/components/frontend-cache-bust.md
@@ -125,5 +129,3 @@ nav:
   - Frontend components to PatternFly component groups: frontend-migrations/frontend-components-to-PF-component-groups.md
   - PatternFly 4 => 5: frontend-migrations/pf-4-to-pf5.md
   - React Router DOM 5 => 6: frontend-migrations/react-router-dom-v5-to-v6.md
-
-

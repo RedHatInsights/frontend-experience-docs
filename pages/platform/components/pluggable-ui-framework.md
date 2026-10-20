@@ -7,7 +7,7 @@
 
 ## What it provides
 
-Loads independent applications and shares platform APIs and state.
+Loads independent applications and shares platform APIs, state, and frontend assets.
 
 ## Backing repositories and responsibilities
 
@@ -17,6 +17,7 @@ The implementation records below describe the backing code, its broader responsi
 |------------------------|---------------------|----------------|
 | [Console Shell](insights-chrome.md) | [insights-chrome](https://github.com/RedHatInsights/insights-chrome) | Masthead, navigation, authentication integration, micro-frontend hosting, public Chrome API, and shared shell state. |
 | [Shared Frontend Components](frontend-components.md) | [frontend-components](https://github.com/RedHatInsights/frontend-components) | Shared UI components, Chrome bindings, utilities, build configuration, test helpers, and development tools. |
+| [Shared Frontend Assets](frontend-assets.md) | [frontend-assets](https://github.com/RedHatInsights/frontend-assets) | Shared icons, images, fonts, and other frontend assets. |
 | [Scalprum](scalprum.md) | [Scalprum](https://github.com/scalprum/scaffolding) | Micro-frontend runtime, React bindings, remote hooks/shared stores, remote types, and build/test utilities. Architecture documentation establishes platform use; current stewardship needs an explicit contract. |
 
 ## Capability boundaries
@@ -27,7 +28,7 @@ The implementation records below describe the backing code, its broader responsi
 
 **Capability ID:** F03
 
-Includes public API, remote hooks, shared state, and tenant hosting.
+Includes public API, remote hooks, shared state, tenant hosting, and shared frontend assets.
 
 ## Ownership and dependency references
 

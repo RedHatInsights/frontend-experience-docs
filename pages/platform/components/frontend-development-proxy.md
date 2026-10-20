@@ -16,6 +16,10 @@ Configurable proxy for local development and E2E environments.
 
 - [frontend-development-proxy](https://github.com/RedHatInsights/frontend-development-proxy)
 
+## Related component
+
+[Frontend Development Tooling](frontend-development-tooling.md) groups this implementation with frontend build tooling and shared CI workflows.
+
 ## Evidence and ownership
 
 Portfolio inclusion was reviewed against the [Services team assignments](https://github.com/orgs/RedHatInsights/teams/experience-services-committers/repositories) on 2026-10-09. Services means Platform Experience Services / Console Framework.

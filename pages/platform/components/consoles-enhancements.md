@@ -16,6 +16,10 @@ Console enhancement tracking.
 
 - [consoles-enhancements](https://github.com/RedHatInsights/consoles-enhancements)
 
+## Related component
+
+[Engineering Operations](engineering-operations.md) groups this enhancement-tracking repository with team status reporting.
+
 ## Evidence and ownership
 
 Portfolio inclusion was reviewed against the [Services team assignments](https://github.com/orgs/RedHatInsights/teams/experience-services-committers/repositories) on 2026-10-09. Services means Platform Experience Services / Console Framework.

@@ -16,6 +16,10 @@ Skills, prompts, and helpers for AI-assisted frontend development.
 
 - [platform-frontend-ai-toolkit](https://github.com/RedHatInsights/platform-frontend-ai-toolkit)
 
+## Related component
+
+[AI Developer Tooling](ai-developer-tooling.md) groups this implementation with framework-team developer-bot automation.
+
 ## Evidence and ownership
 
 Portfolio inclusion was reviewed against the [Services team assignments](https://github.com/orgs/RedHatInsights/teams/experience-services-committers/repositories) on 2026-10-09. Services means Platform Experience Services / Console Framework.

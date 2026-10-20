@@ -16,6 +16,10 @@ Shared icons, images, fonts, and other frontend assets.
 
 - [frontend-assets](https://github.com/RedHatInsights/frontend-assets)
 
+## Related component
+
+[Pluggable UI Framework](pluggable-ui-framework.md) groups this shared asset collection with the platform runtime and shared frontend components.
+
 ## Evidence and ownership
 
 Portfolio inclusion was reviewed against the [Services team assignments](https://github.com/orgs/RedHatInsights/teams/experience-services-committers/repositories) on 2026-10-09. Services means Platform Experience Services / Console Framework.

@@ -4,13 +4,13 @@ Comprehensive architectural documentation for `console.redhat.com` — the Red H
 
 These docs are split by domain so AI agents and developers can load only the context they need.
 
-For the Services portfolio, start with the [component table](component-catalog.md) for platform capabilities, short descriptions, owners, and direct links to details. Component pages in `components/` contain their backing repositories, relevant dependencies, owner references, and source evidence. The inventory was reviewed on 2026-10-09. Verify older domain descriptions against the pinned source evidence in the backing implementation records before using them as current operational contracts.
+For the Services portfolio, start with the [component catalog](component-catalog.md) for platform capabilities, developer tooling, engineering operations, stewardship components, short descriptions, owners, and direct links to details. Component detail pages link to backing implementation records in `components/`, which contain repository responsibilities, relevant dependencies, owner references, and source evidence. The inventory was reviewed on 2026-10-09. Verify older domain descriptions against the pinned source evidence in the backing implementation records before using them as current operational contracts.
 
 ## Documents
 
 | Document | When to read |
 |----------|-------------|
-| [Services Components](component-catalog.md) | Capability-level component and stewardship tables: purpose, owner, and direct links to detail pages |
+| [Services Components](component-catalog.md) | Platform capabilities, developer tooling, engineering operations, and stewardship: purpose, owner, and links to component details and backing records |
 | [Architecture Overview](architecture-overview.md) | High-level diagrams, request flow, infrastructure stack, key metrics |
 | [insights-chrome (Shell)](insights-chrome.md) | Modifying the application shell, layouts, state management, component tree |
 | [Frontend Operator](frontend-operator.md) | CRD schemas, reconciliation logic, config aggregation, deployment model |
@@ -32,7 +32,7 @@ Add to your `CLAUDE.md`:
 
 Split docs in `frontend-experience-docs/pages/platform/`. Read on demand:
 - Component names, purpose, or team ownership → read `pages/platform/component-catalog.md`
-- Backing repositories, lifecycle, or ownership evidence → follow the capability links in `pages/platform/component-catalog.md` to `pages/platform/components/`
+- Backing repositories, lifecycle, or ownership evidence → follow component detail links in `pages/platform/component-catalog.md`, then backing implementation links in `pages/platform/components/`
 - Dependencies or integration boundaries → read the relevant component's detail page in `pages/platform/components/`
 - Modifying chrome shell → read `pages/platform/insights-chrome.md`
 - CRDs or operator work → read `pages/platform/frontend-operator.md`

@@ -16,6 +16,10 @@ Collects, generates, and aggregates team status reports.
 
 - [weekly-status](https://github.com/RedHatInsights/weekly-status)
 
+## Related component
+
+[Engineering Operations](engineering-operations.md) groups this reporting tooling with console enhancement tracking.
+
 ## Evidence and ownership
 
 Portfolio inclusion was reviewed against the [Services team assignments](https://github.com/orgs/RedHatInsights/teams/experience-services-committers/repositories) on 2026-10-09. Services means Platform Experience Services / Console Framework.
