@@ -19,6 +19,7 @@ The implementation records below describe the backing code, its broader responsi
 | [Shared Frontend Components](frontend-components.md) | [frontend-components](https://github.com/RedHatInsights/frontend-components) | Shared UI components, Chrome bindings, utilities, build configuration, test helpers, and development tools. |
 | [Internationalization Tooling](i18n-tooling.md) | [i18n-tooling](https://github.com/RedHatInsights/i18n-tooling) | ICU catalog validation, ESLint rules, catalog adapters/CLI, reusable workflows, and Phrase TMS submission/reconciliation. |
 | Internationalization Hub | [i18n-hub](https://github.com/RedHatInsights/i18n-hub) | Central GitHub Actions hub for Phrase TMS submission and reconciliation across HCC repositories, using the i18n-tooling shared workflows and the i18n GitHub App. |
+| FrontendEnvironment Translation Catalogs | [i18n-frontend-environment](https://github.com/RedHatInsights/i18n-frontend-environment) | FrontendEnvironment source and translated catalogs for bundle, service category, and group titles, synced through i18n-hub with Phrase TMS and delivered to app-interface. |
 
 ## Capability boundaries
 
