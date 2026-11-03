@@ -31,3 +31,11 @@ Implementation guides and operational runbooks are maintained in the backing sou
 ## Dependencies and owner references
 
 - **S3-compatible object storage and ValKey/Redis** — Shared storage/infrastructure owners; ownership and configured mode must be resolved per environment. [Asset pipeline](../asset-pipeline.md).
+
+## Relationship to Frontend Deployment & Delivery
+
+**Role:** Publication implementation.
+
+The operator invokes publication workflows; this repository implements asset publication, retrieval, retention, and cleanup. [Frontend Asset Proxy](frontend-asset-proxy.md) implements serving separately.
+
+[System group and producer/consumer boundaries](frontend-deployment-delivery.md).

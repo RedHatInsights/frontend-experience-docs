@@ -1,4 +1,10 @@
-# Dynamic Navigation Infrastructure
+# Frontend Configuration & Discovery
+
+**Record type:** Cross-component flow
+
+Historically called Dynamic Navigation Infrastructure. This flow belongs to [Frontend Deployment & Delivery](frontend-deployment-delivery.md), with participation from the separately recorded backend and shell. It is not a standalone navigation application or a claim that all participating repositories implement the same responsibility.
+
+<a id="dynamic-navigation-infrastructure"></a>
 
 **Owner:** Services  
 **Reviewed:** 2026-10-09
@@ -7,29 +13,30 @@
 
 ## What it provides
 
-Collects application metadata and publishes navigation configuration.
+Collects and aggregates application metadata, then connects configuration processing/serving to shell consumption. Includes module discovery, navigation definitions, service tiles, search metadata, and widget registrations.
 
-## Backing repositories and responsibilities
+<a id="backing-repositories-and-responsibilities"></a>
 
-The implementation records below describe the backing code, its broader responsibilities, lifecycle, and source evidence.
+## Implementation and consumption relationships
 
-| Backing implementation | Repository / source | Responsibility |
-|------------------------|---------------------|----------------|
-| [Frontend Operator](frontend-operator.md) | [frontend-operator](https://github.com/RedHatInsights/frontend-operator) | Frontend application/environment reconciliation, application metadata aggregation, deployment resources, and asset-publication orchestration. |
-| [Chrome Backend](chrome-service-backend.md) | [chrome-service-backend](https://github.com/RedHatInsights/chrome-service-backend) | User configuration/preferences, generated configuration and search-index processing/serving, integration metadata, and browser-event WebSocket bridge. |
-| [Frontend Configuration Publisher](frontend-config.md) | [frontend-config](https://github.com/RedHatInsights/frontend-config) | Intended extraction of generated configuration processing and S3 publication from Chrome backend. Reviewed source implements a health endpoint only. |
-| [Frontend Environment Configuration](frontend-environments.md) | [frontend-environments](https://gitlab.cee.redhat.com/insights-platform/frontend-environments) | Environment configuration repository referenced by FEO app-interface metadata. Current owner and configuration-publication contract need confirmation. |
-| [Console Shell](insights-chrome.md) | [insights-chrome](https://github.com/RedHatInsights/insights-chrome) | Masthead, navigation, authentication integration, micro-frontend hosting, public Chrome API, and shared shell state. |
+| Related component | Relationship | Contribution to this capability |
+|-------------------|--------------|---------------------------------|
+| [Frontend Operator](frontend-operator.md) | Collects and aggregates | Reads application/environment resources and assembles module, navigation, service-tile, search, and widget metadata. |
+| [Frontend Environment Configuration](frontend-environments.md) | Configuration input | Supplies environment settings; current stewardship and publication contract remain to confirm. |
+| [Chrome Backend](chrome-service-backend.md) | Processes and serves | Currently handles generated configuration outputs; unrelated runtime APIs remain backend responsibilities. |
+| [Console Shell](insights-chrome.md) | Consumes | Loads configuration to render navigation and discover application modules; does not reconcile frontend resources. |
+| [Frontend Configuration Publisher](frontend-config.md) | Planned extraction; scaffold | Intended configuration processing/publication replacement. Reviewed source does not establish an operational replacement. |
 
 ## Capability boundaries
 
 <a id="f04"></a>
+<a id="dynamic-navigation-infrastructure_1"></a>
 
 ### Dynamic navigation infrastructure
 
 **Capability ID:** F04
 
-Configuration generation/publication and consumption are distinct responsibilities; S04 is emerging.
+Configuration collection, processing/publication, and consumption are distinct responsibilities. The Frontend Configuration Publisher (S04) is emerging. Metadata includes more than navigation; search behavior, widget persistence, and application UI remain outside this flow.
 
 Frontend configuration extraction is an emerging scaffold. Existing Chrome-backend generation/serving must remain explicit until publication and consumer migration are implemented.
 
@@ -47,3 +54,14 @@ The linked backing implementations carry pinned source evidence and implementati
 ## Lifecycle and history
 
 - [cloud-services-config](https://github.com/RedHatInsights/cloud-services-config) is archived; current configuration generation/publication is described by the backing implementations.
+
+## Producer-to-consumer flow
+
+```text
+Application metadata + environment configuration
+    -> Frontend Operator (collection / aggregation)
+    -> Chrome Backend (current processing / serving)
+    -> Console Shell (consumption / rendering / application discovery)
+```
+
+This describes the logical responsibility flow, not a claim that every environment uses an identical transport or storage path. Follow implementation evidence for operational details.

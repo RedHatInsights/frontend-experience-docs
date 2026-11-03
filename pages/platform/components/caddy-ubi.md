@@ -23,3 +23,11 @@ This is a stewardship or integration record. The owner and source evidence above
 - Current resource/image owners and consumers: **To confirm**.
 
 Implementation guides and operational runbooks are maintained in the backing source repository. Update this backing record and the relevant capability details together when ownership, lifecycle, or backing sources change.
+
+## Relationship to Frontend Deployment & Delivery
+
+**Role:** Runtime artifact.
+
+Provides the runtime environment where used. It is separate from the Go asset proxy and from the build-time [Frontend Builder Image](frontend-build-container.md). Current consumers and stewardship remain to confirm.
+
+[System group and producer/consumer boundaries](frontend-deployment-delivery.md).

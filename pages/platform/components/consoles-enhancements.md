@@ -1,10 +1,10 @@
 # Console Enhancement Tracking
 
 **Implementation ID:** S33  
-**Owner:** Services (portfolio ownership).  
+**Accountable team:** Services<br>
 **Type:** Backlog / process repository  
 **Status:** Tracked  
-**Reviewed:** 2026-10-09
+**Reviewed:** 2026-10-23
 
 [Component index](../component-catalog.md)
 
@@ -27,3 +27,7 @@ Portfolio inclusion was reviewed against the [Services team assignments](https:/
 Operational contact and escalation policy: **To confirm**.
 
 Implementation guides and operational runbooks are maintained in the backing source repository. Update this backing record and the relevant capability details together when ownership, lifecycle, or backing sources change.
+
+## Confirmed accountability
+
+Services accountability was confirmed by the team owner on 2026-10-23, despite repository access by both UI and Services. UI contributions or consumption do not transfer component accountability.

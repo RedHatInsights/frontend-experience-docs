@@ -42,53 +42,79 @@ nav:
     - 'Frontend operator migrations': services/Chrome_service_backend/feo-migration-guide
 - Platform Architecture:
   - Overview: platform/index.md
-  - Services Portfolio:
+  - Component Portfolio:
     - Components: platform/component-catalog.md
-    - Capability Details:
-      - Chrome Service: platform/components/chrome-service.md
-      - Navigation: platform/components/navigation.md
-      - Dynamic Navigation Infrastructure: platform/components/dynamic-navigation.md
+    - Services Component Details:
+      - Console Shell: platform/components/insights-chrome.md
+      - Chrome Backend: platform/components/chrome-service-backend.md
+      - Frontend Deployment & Delivery:
+        - Overview: platform/components/frontend-deployment-delivery.md
+        - Frontend Operator: platform/components/frontend-operator.md
+        - Asset Publication and Version Retention: platform/components/valpop.md
+        - Frontend Asset Proxy: platform/components/frontend-asset-proxy.md
+        - Configuration & Discovery Flow: platform/components/dynamic-navigation.md
+        - Push Cache / Asset Delivery: platform/components/push-cache.md
+        - Environment Configuration: platform/components/frontend-environments.md
+        - Runtime Image: platform/components/caddy-ubi.md
+        - CDN Cache Purging: platform/components/frontend-cache-bust.md
+        - Deployment and Release Configuration: platform/components/deployment-release-configuration.md
+        - Configuration Publisher (Scaffold): platform/components/frontend-config.md
       - Search: platform/components/search.md
       - Internationalization: platform/components/internationalization.md
       - Accessibility: platform/components/accessibility.md
       - Tutorials & Quickstarts: platform/components/tutorials-and-quickstarts.md
       - Learning Resources & Help: platform/components/learning-resources-help.md
       - PDF Generation: platform/components/pdf-generator.md
-      - Feedback Collection: platform/components/feedback.md
       - Virtual Assistant: platform/components/virtual-assistant.md
-      - Pluggable UI Framework: platform/components/pluggable-ui-framework.md
-      - Dynamic Plugin SDK Integration: platform/components/dynamic-plugin-sdk.md
-      - Data Driven Forms: platform/components/data-driven-forms.md
       - Widget Layout: platform/components/widget-layout-system.md
-      - Push Cache: platform/components/push-cache.md
       - Akamai Integration: platform/components/akamai-integration.md
-      - Stratosphere UX: platform/components/stratosphere.md
-      - Support Case Integration: platform/components/support-case-integration.md
       - Scheduler UI: platform/components/scheduler-ui.md
       - Analytics Integration: platform/components/analytics-integration.md
       - Feature Flags: platform/components/feature-flags.md
-      - Service Account Management: platform/components/service-accounts.md
       - OCM API Gateway: platform/components/uhc-gateway.md
       - Frontend Development Tooling: platform/components/frontend-development-tooling.md
       - Frontend API and Quality Tooling: platform/components/frontend-api-and-quality-tooling.md
       - AI Developer Tooling: platform/components/ai-developer-tooling.md
       - Engineering Operations: platform/components/engineering-operations.md
-    - Stewardship Details:
-      - Scalprum: platform/components/scalprum.md
-      - CDN Cache Purging: platform/components/frontend-cache-bust.md
-      - Frontend Environment Configuration: platform/components/frontend-environments.md
-      - Frontend Builder Image: platform/components/frontend-build-container.md
-      - Frontend Runtime Image: platform/components/caddy-ubi.md
-      - Deployment and Release Configuration: platform/components/deployment-release-configuration.md
-    - Backing Implementations:
-      - Console Shell: platform/components/insights-chrome.md
-      - Chrome Backend: platform/components/chrome-service-backend.md
-      - Frontend Operator: platform/components/frontend-operator.md
-      - Frontend Configuration Publisher: platform/components/frontend-config.md
-      - Frontend Asset Proxy: platform/components/frontend-asset-proxy.md
-      - Asset Publication and Version Retention: platform/components/valpop.md
+      - Strategic Initiative Integration: platform/components/strategic-initiative-integration.md
+      - Frontend Components Pipeline: platform/components/frontend-components.md
+    - Shell Capabilities and Integrations:
+      - Runtime Overview: platform/components/chrome-service.md
+      - Navigation: platform/components/navigation.md
+      - Application Loading and Chrome APIs: platform/components/pluggable-ui-framework.md
+      - Dynamic Plugin SDK Integration: platform/components/dynamic-plugin-sdk.md
+      - Support Case Integration: platform/components/support-case-integration.md
+      - Stratosphere UX: platform/components/stratosphere.md
+      - Feedback Collection: platform/components/feedback.md
+    - UI Component Details:
+      - Landing Page: platform/components/landing-page-frontend.md
+      - Console API UI: platform/components/api-frontend.md
+      - Developer API Catalog: platform/components/api-documentation-frontend.md
+      - RBAC UI: platform/components/insights-rbac-ui.md
+      - Access Requests / TAM Tool: platform/components/access-requests-frontend.md
+      - Payload Tracker UI: platform/components/payload-tracker-frontend.md
+      - Platform Settings: platform/components/platform-settings-ui.md
+      - Sources UI: platform/components/sources-ui.md
+      - Notifications UI: platform/components/notifications-frontend.md
+      - User Preferences UI: platform/components/user-preferences-frontend.md
+      - Service Account Management: platform/components/service-accounts.md
+      - Shared Frontend UI Components: platform/components/frontend-components.md
       - Shared Frontend Assets: platform/components/frontend-assets.md
-      - Shared Frontend Components: platform/components/frontend-components.md
+      - Internationalization Tooling: platform/components/i18n-tooling.md
+      - Internationalization Hub: platform/components/i18n-hub.md
+      - HCC Debugger: platform/components/hcc-debugger.md
+      - UI E2E Runner Image: platform/components/cypress-e2e-image.md
+      - Storybook Hub: platform/components/hcc-storybook-hub.md
+      - UI Developer Bot: platform/components/hcc-ui-agent-dev.md
+    - Historical and Unresolved Details:
+      - Legacy Components: platform/legacy-components.md
+      - Product Trials Integration: platform/components/product-trials-integration.md
+      - Legacy UI-Associated Implementations: platform/components/legacy-ui-implementations.md
+    - Stewardship Details:
+      - Data Driven Forms: platform/components/data-driven-forms.md
+      - Scalprum: platform/components/scalprum.md
+      - Frontend Builder Image: platform/components/frontend-build-container.md
+    - Backing Implementations:
       - Widget Layout Frontend: platform/components/widget-layout.md
       - Generated API Clients: platform/components/javascript-clients.md
       - AI Web Clients: platform/components/ai-web-clients.md
@@ -106,7 +132,6 @@ nav:
       - Frontend Test Helpers: platform/components/frontend-test-utils.md
       - Repository Security Scanner: platform/components/frontend-repo-security-scanner.md
       - Analytics Verification: platform/components/analytics-e2e-flow-verification-tooling.md
-      - Internationalization Tooling: platform/components/i18n-tooling.md
       - AI Development Toolkit: platform/components/platform-frontend-ai-toolkit.md
       - Framework Developer Bot: platform/components/hcc-framework-agent-dev.md
       - Frontend Experience Documentation: platform/components/frontend-experience-docs.md

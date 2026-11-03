@@ -1,5 +1,9 @@
 # Console Shell
 
+**Record type:** Software component
+
+Primary catalog record for the frontend shell. [Console Runtime Overview](chrome-service.md) holds shared capability notes; [Chrome Backend](chrome-service-backend.md) is a separate backend component.
+
 **Implementation ID:** S01  
 **Owner:** Services (portfolio ownership).  
 **Type:** Application shell  
@@ -16,33 +20,37 @@ Masthead, navigation, authentication integration, micro-frontend hosting, public
 
 - [insights-chrome](https://github.com/RedHatInsights/insights-chrome)
 
-## Capabilities
+<a id="capabilities"></a>
 
-- [F01: Chrome service / shell](chrome-service.md#f01)
-- [F02: Authentication and visibility](chrome-service.md#f02)
-- [F03: Pluggable UI framework and Chrome API](pluggable-ui-framework.md#f03)
-- [F04: Dynamic navigation infrastructure](dynamic-navigation.md#f04)
-- [F05: Navigation](navigation.md#f05)
-- [F06: Search](search.md#f06)
-- [F07: Internationalization](internationalization.md#f07)
-- [F08: Accessibility](accessibility.md#f08)
-- [F09: Tutorials and quickstarts](tutorials-and-quickstarts.md#f09)
-- [F10: Learning resources and help experience](learning-resources-help.md#f10)
-- [F12: Feedback collection](feedback.md#f12)
-- [F13: Dynamic Plugin SDK integration](dynamic-plugin-sdk.md#f13)
-- [F18: Stratosphere UX](stratosphere.md#f18)
-- [F19: Support-case integration](support-case-integration.md#f19)
-- [F20: Analytics integration](analytics-integration.md#f20)
-- [F21: Scheduler UI](scheduler-ui.md#f21)
-- [F22: Global/help/notification drawers](chrome-service.md#f22)
-- [F23: Browser events](chrome-service.md#f23)
-- [F24: Workspace selection](chrome-service.md#f24)
-- [F25: TAM context switching](chrome-service.md#f25)
-- [F26: Global inventory filter](chrome-service.md#f26)
-- [F27: Favorites, recently visited services, personalization](chrome-service.md#f27)
-- [F28: Theme, dark mode, and high contrast](chrome-service.md#f28)
-- [F29: Error containment and degraded behavior](chrome-service.md#f29)
-- [F30: Preview and feature-flag integration](feature-flags.md#f30)
+## Implemented capabilities and integrations
+
+| Capability | Shell responsibility | Related provider / dependency |
+|------------|----------------------|-------------------------------|
+| [Shared chrome and shell state](chrome-service.md#f01) | Masthead, drawers, shared filters, personalization UI, themes, and degraded behavior. | Backend user configuration and independently supplied drawer modules. |
+| [Navigation](navigation.md#f05) | Rendering, routes, visibility checks, and extension points. | Backend-served configuration and operator-collected metadata. |
+| [Authentication and visibility](chrome-service.md#f02) | Shell authentication/session integration and access-aware UI. | SSO/OIDC, entitlement, and authorization providers. |
+| [Application loading and Chrome APIs](pluggable-ui-framework.md#f03) | Runtime hosting, public shell APIs, and shared state integration. | Scalprum, shared package bindings, and [SDK compatibility](dynamic-plugin-sdk.md#f13). |
+| [Support-case integration](support-case-integration.md#f19) | Contextual frontend handoff into support workflows. | Backend integration configuration and upstream support systems. |
+| [Stratosphere UX](stratosphere.md#f18) | Product-selection / marketplace-account linking integration. | Upstream product/account services. |
+| [Feedback](feedback.md#f12) | Retained form/API integration; current mounted exposure remains to confirm. | External feedback API; owner to confirm. |
+
+Capabilities and integrations are not additional deployed shell components. The overview preserves existing capability IDs for [drawers](chrome-service.md#f22), [workspace selection](chrome-service.md#f24), [TAM context switching](chrome-service.md#f25), [global inventory filters](chrome-service.md#f26), [personalization](chrome-service.md#f27), [themes](chrome-service.md#f28), and [error containment](chrome-service.md#f29).
+
+## Providers, hosted modules, and consumers
+
+[Strategic Initiative Integration](strategic-initiative-integration.md) coordinates platform engagement for Lightwell and future high-stakes initiatives. Layout, navigation, and other shell implementation work remains owned by Console Shell; engagement and implementation effort are tracked separately without double-counting.
+
+| Related component or capability | Relationship to the shell |
+|---------------------------------|---------------------------|
+| [Chrome Backend](chrome-service-backend.md) | Provides runtime/configuration APIs and the [browser-event bridge](chrome-service.md#f23). |
+| [Frontend Deployment & Delivery](frontend-deployment-delivery.md) | Supplies deployment and asset-delivery mechanisms; shell consumes the [configuration/discovery flow](dynamic-navigation.md#f04). |
+| [Landing Page](landing-page-frontend.md), [RBAC UI](insights-rbac-ui.md), [Access Requests](access-requests-frontend.md) | Separate hosted applications that consume shell APIs; their application code is not implemented by Chrome. |
+| [Learning Resources & Help](learning-resources-help.md#f10), [Tutorials & Quickstarts](tutorials-and-quickstarts.md#f09) | Supply experiences/content integrated into the shell; hosting is distinct from their implementation. |
+| [Scheduler UI](scheduler-ui.md#f21), [Virtual Assistant](virtual-assistant.md), [Notifications UI](notifications-frontend.md) | Independently implemented applications/modules; hosting does not absorb their scope or change transfer markings. |
+| [Search](search.md#f06) | Integrates search UI/index consumption; separate transfer-candidate scope remains in the catalog. |
+| [Shared Frontend Components](frontend-components.md), [Shared Frontend Assets](frontend-assets.md) | Package/content dependencies; remain separate library/content records. |
+| [Internationalization](internationalization.md#f07), [Accessibility](accessibility.md#f08) | Cross-cutting capabilities; shell implements its own runtime/UI behavior and consumes shared tooling. |
+| [Analytics Integration](analytics-integration.md#f20), [Feature Flags](feature-flags.md#f30) | Shared integration capabilities with separate provider/configuration boundaries. |
 
 ## Evidence and ownership
 

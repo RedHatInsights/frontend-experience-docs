@@ -1,10 +1,10 @@
 # Frontend Experience Documentation
 
 **Implementation ID:** S32  
-**Owner:** Services (portfolio ownership).  
+**Accountable team:** Services<br>
 **Type:** Documentation hub  
 **Status:** Tracked  
-**Reviewed:** 2026-10-09
+**Reviewed:** 2026-10-23
 
 [Component index](../component-catalog.md)
 
@@ -41,3 +41,7 @@ UI dependency references came from the [Experience UI committers assignments](ht
 The old [developer-sandbox-ui](https://github.com/RedHatInsights/developer-sandbox-ui) repository is archived; current sandbox ownership needs confirmation. Historical [subscriptions-dashboard-ui](https://github.com/RedHatInsights/subscriptions-dashboard-ui) ownership also needs confirmation because it was absent from the reviewed Services/UI committers lists.
 
 Implementation status labels describe the reviewed source: **Tracked** does not prove production deployment; **Emerging** identifies a scaffold; **POC** identifies incomplete validation; **Ownership pending** marks an unconfirmed steward; **Archived** describes repository status, with runtime retirement checked separately.
+
+## Confirmed accountability
+
+Services accountability was confirmed by the team owner on 2026-10-23, despite repository access by both UI and Services. UI contributions or consumption do not transfer component accountability.

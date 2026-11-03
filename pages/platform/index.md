@@ -4,13 +4,14 @@ Comprehensive architectural documentation for `console.redhat.com` — the Red H
 
 These docs are split by domain so AI agents and developers can load only the context they need.
 
-For the Services portfolio, start with the [component catalog](component-catalog.md) for platform capabilities, developer tooling, engineering operations, stewardship components, short descriptions, owners, and direct links to details. Component detail pages link to backing implementation records in `components/`, which contain repository responsibilities, relevant dependencies, owner references, and source evidence. The inventory was reviewed on 2026-10-09. Verify older domain descriptions against the pinned source evidence in the backing implementation records before using them as current operational contracts.
+For the Services and UI portfolios, start with the [component catalog](component-catalog.md), the list of components and system groups, grouped by current portfolio with supporting responsibilities. Detail pages in `components/` distinguish implementation components from capabilities, integration notes, and producer/consumer flows, with repository responsibilities, dependencies, lifecycle, and source evidence. Frontend Deployment & Delivery groups the operator, publication/serving implementations, and associated configuration without merging their software boundaries. UI build/release mappings include Konflux application links. Ownership was reviewed on 2026-10-23; individual pages retain implementation review dates. Verify older domain descriptions against the source evidence before using them as operational contracts.
 
 ## Documents
 
 | Document | When to read |
 |----------|-------------|
-| [Services Components](component-catalog.md) | Platform capabilities, developer tooling, engineering operations, and stewardship: purpose, owner, and links to component details and backing records |
+| [Component Catalog](component-catalog.md) | Services/UI components and system groups, supporting responsibilities, and links to details |
+| [Frontend Deployment & Delivery](components/frontend-deployment-delivery.md) | Operator, configuration/discovery flow, asset publication/serving, and implementation versus consumer boundaries |
 | [Architecture Overview](architecture-overview.md) | High-level diagrams, request flow, infrastructure stack, key metrics |
 | [insights-chrome (Shell)](insights-chrome.md) | Modifying the application shell, layouts, state management, component tree |
 | [Frontend Operator](frontend-operator.md) | CRD schemas, reconciliation logic, config aggregation, deployment model |
@@ -46,5 +47,5 @@ Split docs in `frontend-experience-docs/pages/platform/`. Read on demand:
 
 ---
 
-*Maintainer: Console Framework Team (Platform Experience Services)*  
-*Last updated: 2026-10-09*
+*Maintainers: Console Framework Team (Platform Experience Services) and Platform Experience UI*<br>
+*Last updated: 2026-10-23*

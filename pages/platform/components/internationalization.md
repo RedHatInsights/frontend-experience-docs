@@ -1,7 +1,7 @@
 # Internationalization
 
 **Owner:** Services  
-**Reviewed:** 2026-10-09
+**Reviewed:** 2026-10-23
 
 [Component index](../component-catalog.md)
 
@@ -18,6 +18,7 @@ The implementation records below describe the backing code, its broader responsi
 | [Console Shell](insights-chrome.md) | [insights-chrome](https://github.com/RedHatInsights/insights-chrome) | Masthead, navigation, authentication integration, micro-frontend hosting, public Chrome API, and shared shell state. |
 | [Shared Frontend Components](frontend-components.md) | [frontend-components](https://github.com/RedHatInsights/frontend-components) | Shared UI components, Chrome bindings, utilities, build configuration, test helpers, and development tools. |
 | [Internationalization Tooling](i18n-tooling.md) | [i18n-tooling](https://github.com/RedHatInsights/i18n-tooling) | ICU catalog validation, ESLint rules, catalog adapters/CLI, reusable workflows, and Phrase TMS submission/reconciliation. |
+| [Internationalization Hub](i18n-hub.md) | [i18n-hub](https://github.com/RedHatInsights/i18n-hub) | UI-owned central Phrase submission/reconciliation orchestration using i18n-tooling. |
 
 ## Capability boundaries
 
@@ -37,4 +38,8 @@ The linked backing implementations carry pinned source evidence and implementati
 
 ## Dependencies and owner references
 
-- **Phrase translation management** — Translation-platform/account owners; Services owns tooling integration. [i18n-tooling](https://github.com/RedHatInsights/i18n-tooling).
+- **Phrase translation management** — Translation-platform/account owners; UI owns tooling/hub integration and Services owns shell/runtime integration. [i18n-tooling](https://github.com/RedHatInsights/i18n-tooling).
+
+## Team responsibility boundary
+
+Services is accountable for shell/runtime internationalization integration. UI owns [Internationalization Tooling](i18n-tooling.md) and the [Internationalization Hub](i18n-hub.md). Application teams maintain their catalogs and consume translations.

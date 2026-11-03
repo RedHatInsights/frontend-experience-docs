@@ -26,3 +26,11 @@ Operational contact and escalation policy: **To confirm**.
 - Configuration publication, consumer migration, and replacement of Chrome-backend behavior: **Not established by the current scaffold**.
 
 Implementation guides and operational runbooks are maintained in the backing source repository. Update this backing record and the relevant capability details together when ownership, lifecycle, or backing sources change.
+
+## Relationship to Frontend Deployment & Delivery
+
+**Role:** Planned configuration extraction.
+
+Planned processing/publication implementation within the configuration flow. Reviewed source is a scaffold, not an active replacement for Chrome Backend; keep source maturity separate from this documentation grouping.
+
+[System group and producer/consumer boundaries](frontend-deployment-delivery.md).

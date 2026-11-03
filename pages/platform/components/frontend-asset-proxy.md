@@ -33,3 +33,11 @@ Implementation guides and operational runbooks are maintained in the backing sou
 ## Dependencies and owner references
 
 - **S3-compatible object storage and ValKey/Redis** — Shared storage/infrastructure owners; ownership and configured mode must be resolved per environment. [Asset pipeline](../asset-pipeline.md).
+
+## Relationship to Frontend Deployment & Delivery
+
+**Role:** Serving implementation.
+
+Serves published assets. [Valpop](valpop.md) implements publication/version retention, and [Frontend Operator](frontend-operator.md) orchestrates deployment. The Go proxy is distinct from the [shared runtime image](caddy-ubi.md).
+
+[System group and producer/consumer boundaries](frontend-deployment-delivery.md).

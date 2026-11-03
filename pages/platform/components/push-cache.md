@@ -1,5 +1,9 @@
 # Push Cache
 
+**Record type:** Delivery capability
+
+Publication, retention, and serving are capabilities of [Frontend Deployment & Delivery](frontend-deployment-delivery.md). The operator, Valpop, and asset proxy remain distinct implementation components with separate failure and release boundaries.
+
 **Owner:** Services integration; shared storage providers  
 **Reviewed:** 2026-10-09
 
@@ -9,16 +13,16 @@
 
 Publishes, retains, and serves frontend asset versions.
 
-## Backing repositories and responsibilities
+<a id="backing-repositories-and-responsibilities"></a>
 
-The implementation records below describe the backing code, its broader responsibilities, lifecycle, and source evidence.
+## Implementation and consumption relationships
 
-| Backing implementation | Repository / source | Responsibility |
-|------------------------|---------------------|----------------|
-| [Frontend Operator](frontend-operator.md) | [frontend-operator](https://github.com/RedHatInsights/frontend-operator) | Frontend application/environment reconciliation, application metadata aggregation, deployment resources, and asset-publication orchestration. |
-| [Asset Publication and Version Retention](valpop.md) | [valpop](https://github.com/RedHatInsights/valpop) | Publishes/retrieves frontend assets, retains versions, and cleans up old records; supports S3 and ValKey/Redis modes. |
-| [Frontend Asset Proxy](frontend-asset-proxy.md) | [frontend-asset-proxy](https://github.com/RedHatInsights/frontend-asset-proxy) | Go reverse proxy for S3-compatible frontend assets, including SPA entry-point fallback. |
-| [Akamai Integration](akamai-integration.md) | [Akamai integration notes](akamai-integration.md) | The survival guide identifies Services responsibility for configuration, delivery integration, and purge/recovery procedures. Akamai platform and DNS ownership remain dependency relationships. |
+| Related component | Relationship | Contribution to this capability |
+|-------------------|--------------|---------------------------------|
+| [Frontend Operator](frontend-operator.md) | Orchestrates | Reconciles resources and triggers asset-publication/invalidation jobs; does not itself implement asset serving. |
+| [Asset Publication and Version Retention](valpop.md) | Implements publication/retention | Publishes/retrieves assets, retains versions, and cleans up records; storage mode is environment-dependent. |
+| [Frontend Asset Proxy](frontend-asset-proxy.md) | Implements serving | Serves assets from S3-compatible storage with SPA fallback. |
+| [Akamai Integration](akamai-integration.md) | Adjacent CDN integration / transfer candidate | Supplies edge caching and invalidation integration. Remains separately listed and starred; CDN infrastructure is external. |
 
 ## Capability boundaries
 

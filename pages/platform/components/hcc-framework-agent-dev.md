@@ -35,4 +35,4 @@ Implementation guides and operational runbooks are maintained in the backing sou
 ## Dependencies and owner references
 
 - **Řehoř shared developer-agent framework** — [OpenShift-Fleet/rehor](https://github.com/OpenShift-Fleet/rehor); former Services developer-bot URL redirects here. Confirm current stewardship/support contract.
-- **UI integration:** [hcc-ui-agent-dev](https://github.com/RedHatInsights/hcc-ui-agent-dev) — Sibling automation instance using the shared Řehoř developer-agent framework.
+- **UI integration:** [UI Developer Bot](hcc-ui-agent-dev.md) — Separately owned sibling instance. Its reviewed README references a `dev-bot` submodule from `platform-frontend-ai-dev`; verify the pinned submodule rather than assuming both instances use the same framework revision.

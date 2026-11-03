@@ -1,7 +1,11 @@
 # Feedback Collection
 
+**Record type:** Shell integration
+
+The shell-side feedback implementation belongs to [Console Shell](insights-chrome.md). This note retains uncertainty around mounted UI exposure and the external feedback API; it does not establish a separate active frontend service.
+
 **Owner:** Services integration; backend owner to confirm  
-**Reviewed:** 2026-10-09
+**Reviewed:** 2026-10-23
 
 [Component index](../component-catalog.md)
 
@@ -9,13 +13,13 @@
 
 Collects user feedback and connects feedback integrations.
 
-## Backing repositories and responsibilities
+<a id="backing-repositories-and-responsibilities"></a>
 
-The implementation records below describe the backing code, its broader responsibilities, lifecycle, and source evidence.
+## Implementation and consumption relationships
 
-| Backing implementation | Repository / source | Responsibility |
-|------------------------|---------------------|----------------|
-| [Console Shell](insights-chrome.md) | [insights-chrome](https://github.com/RedHatInsights/insights-chrome) | Masthead, navigation, authentication integration, micro-frontend hosting, public Chrome API, and shared shell state. |
+| Related component | Relationship | Contribution to this capability |
+|-------------------|--------------|---------------------------------|
+| [Console Shell](insights-chrome.md) | Contains retained implementation | Feedback form/API integration exists in source; mounted exposure and backend owner remain to confirm. |
 
 ## Capability boundaries
 
@@ -38,3 +42,7 @@ The linked backing implementations carry pinned source evidence and implementati
 ## Dependencies and owner references
 
 - **Platform-feedback API** — Backend owner and current mounted consumer to confirm. [Retained feedback implementation](https://github.com/RedHatInsights/insights-chrome/blob/master/src/components/Feedback/FeedbackForm.tsx).
+
+## Team responsibility boundary
+
+Services remains accountable for feedback integration; backend ownership stays to confirm. The historical UI grouping of settings, preferences, favorites, and feedback is not a single application ownership boundary. UI-owned settings and preferences are separate catalog components.

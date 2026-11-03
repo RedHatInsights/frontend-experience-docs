@@ -1,5 +1,9 @@
 # Dynamic Plugin SDK Integration
 
+**Record type:** Runtime integration
+
+This note describes [Console Shell](insights-chrome.md) compatibility with an upstream SDK. It is not a separate deployed console service or ownership of the upstream SDK.
+
 **Owner:** OpenShift SDK maintainers; Services integration  
 **Reviewed:** 2026-10-09
 
@@ -9,14 +13,14 @@
 
 Compatibility with OpenShift dynamic plugins.
 
-## Backing repositories and responsibilities
+<a id="backing-repositories-and-responsibilities"></a>
 
-The implementation records below describe the backing code, its broader responsibilities, lifecycle, and source evidence.
+## Implementation and consumption relationships
 
-| Backing implementation | Repository / source | Responsibility |
-|------------------------|---------------------|----------------|
-| [Console Shell](insights-chrome.md) | [insights-chrome](https://github.com/RedHatInsights/insights-chrome) | Masthead, navigation, authentication integration, micro-frontend hosting, public Chrome API, and shared shell state. |
-| [Scalprum](scalprum.md) | [Scalprum](https://github.com/scalprum/scaffolding) | Micro-frontend runtime, React bindings, remote hooks/shared stores, remote types, and build/test utilities. Architecture documentation establishes platform use; current stewardship needs an explicit contract. |
+| Related component | Relationship | Contribution to this capability |
+|-------------------|--------------|---------------------------------|
+| [Console Shell](insights-chrome.md) | Implements compatibility integration | Integrates upstream dynamic-plugin interfaces into the console runtime. |
+| [Scalprum](scalprum.md) | Runtime library dependency | Supplies existing micro-frontend loading/bindings alongside the upstream SDK; replacement is not established. |
 
 ## Capability boundaries
 

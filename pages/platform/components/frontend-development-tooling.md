@@ -1,7 +1,7 @@
 # Frontend Development Tooling
 
 **Owner:** Services  
-**Reviewed:** 2026-10-20
+**Reviewed:** 2026-10-23
 
 [Component index](../component-catalog.md)
 
@@ -31,3 +31,7 @@ Services means Platform Experience Services / Console Framework. Operational con
 - **Related developer tooling:** Debugging, component documentation, and test integrations are referenced by [Local Development Proxy](frontend-development-proxy.md).
 - **Images and deployment configuration:** [Frontend Builder Image](frontend-build-container.md), [Frontend Runtime Image](caddy-ubi.md), and [Deployment and Release Configuration](deployment-release-configuration.md) have separate stewardship records.
 - **Documentation publishing:** Shared Inscope platform owners provide the publishing platform referenced by [Frontend Experience Documentation](frontend-experience-docs.md).
+
+## Team responsibility boundary
+
+Services accountability includes frontend-starter-app and frontend-experience-docs, as confirmed by the team owner on 2026-10-23. UI supports these shared resources through application/component contributions; repository access does not transfer accountability.

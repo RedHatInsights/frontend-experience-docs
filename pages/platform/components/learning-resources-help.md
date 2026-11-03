@@ -1,7 +1,7 @@
 # Learning Resources & Help
 
 **Owner:** Services  
-**Reviewed:** 2026-10-09
+**Reviewed:** 2026-10-23
 
 [Component index](../component-catalog.md)
 
@@ -37,3 +37,7 @@ The linked backing implementations carry pinned source evidence and implementati
 ## Dependencies and owner references
 
 - **PatternFly, Quickstarts, and shared PatternFly extensions** — [PatternFly](https://github.com/patternfly), [React Component Groups](https://github.com/patternfly/react-component-groups), [React Data View](https://github.com/patternfly/react-data-view), [ChatBot](https://github.com/patternfly/chatbot). Confirm team-specific extension stewardship.
+
+## Team responsibility boundary
+
+Services remains accountable for this capability. “Learning Resource Page” in the historical UI list maps to the existing [Learning Resources](learning-resources.md) implementation, not a second UI-owned component. UI content contributions do not transfer accountability.

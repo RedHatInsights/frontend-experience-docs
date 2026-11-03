@@ -27,3 +27,11 @@ This is a stewardship or integration record. The owner and source evidence above
 - Current resource/image owners and consumers: **To confirm**.
 
 Implementation guides and operational runbooks are maintained in the backing source repository. Update this backing record and the relevant capability details together when ownership, lifecycle, or backing sources change.
+
+## Relationship to Frontend Deployment & Delivery
+
+**Role:** Configuration input.
+
+Environment settings feed the deployment/configuration flow; this record is a configuration asset, not another operator service. Current stewardship remains unresolved.
+
+[System group and producer/consumer boundaries](frontend-deployment-delivery.md).
