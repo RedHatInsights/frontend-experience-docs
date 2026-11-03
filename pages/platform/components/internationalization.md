@@ -18,6 +18,7 @@ The implementation records below describe the backing code, its broader responsi
 | [Console Shell](insights-chrome.md) | [insights-chrome](https://github.com/RedHatInsights/insights-chrome) | Masthead, navigation, authentication integration, micro-frontend hosting, public Chrome API, and shared shell state. |
 | [Shared Frontend Components](frontend-components.md) | [frontend-components](https://github.com/RedHatInsights/frontend-components) | Shared UI components, Chrome bindings, utilities, build configuration, test helpers, and development tools. |
 | [Internationalization Tooling](i18n-tooling.md) | [i18n-tooling](https://github.com/RedHatInsights/i18n-tooling) | ICU catalog validation, ESLint rules, catalog adapters/CLI, reusable workflows, and Phrase TMS submission/reconciliation. |
+| Internationalization Hub | [i18n-hub](https://github.com/RedHatInsights/i18n-hub) | Central GitHub Actions hub for Phrase TMS submission and reconciliation across HCC repositories, using the i18n-tooling shared workflows and the i18n GitHub App. |
 
 ## Capability boundaries
 
