@@ -1,5 +1,9 @@
 # Support Case Integration
 
+**Record type:** Shell/backend integration
+
+Shell/backend adapters hand user and application context into upstream support workflows. The upstream support application is a dependency, not another implementation of Chrome.
+
 **Owner:** Services integration; support systems upstream  
 **Reviewed:** 2026-10-09
 
@@ -9,14 +13,14 @@
 
 Hands application and user context into support-case workflows.
 
-## Backing repositories and responsibilities
+<a id="backing-repositories-and-responsibilities"></a>
 
-The implementation records below describe the backing code, its broader responsibilities, lifecycle, and source evidence.
+## Implementation and consumption relationships
 
-| Backing implementation | Repository / source | Responsibility |
-|------------------------|---------------------|----------------|
-| [Console Shell](insights-chrome.md) | [insights-chrome](https://github.com/RedHatInsights/insights-chrome) | Masthead, navigation, authentication integration, micro-frontend hosting, public Chrome API, and shared shell state. |
-| [Chrome Backend](chrome-service-backend.md) | [chrome-service-backend](https://github.com/RedHatInsights/chrome-service-backend) | User configuration/preferences, generated configuration and search-index processing/serving, integration metadata, and browser-event WebSocket bridge. |
+| Related component | Relationship | Contribution to this capability |
+|-------------------|--------------|---------------------------------|
+| [Console Shell](insights-chrome.md) | Implements frontend integration | Collects context and initiates contextual support-case/session handoff. |
+| [Chrome Backend](chrome-service-backend.md) | Provides integration metadata/configuration | Supplies backend-side support integration configuration; does not implement the upstream case-management application. |
 
 ## Capability boundaries
 

@@ -1,5 +1,9 @@
 # Stratosphere UX
 
+**Record type:** Shell integration
+
+Product-selection and marketplace/account-linking behavior is documented under [Console Shell](insights-chrome.md). Upstream marketplace/account services remain separate systems.
+
 **Owner:** Services shell integration  
 **Reviewed:** 2026-10-09
 
@@ -9,13 +13,13 @@
 
 Marketplace/account-linking and product-selection experience.
 
-## Backing repositories and responsibilities
+<a id="backing-repositories-and-responsibilities"></a>
 
-The implementation records below describe the backing code, its broader responsibilities, lifecycle, and source evidence.
+## Implementation and consumption relationships
 
-| Backing implementation | Repository / source | Responsibility |
-|------------------------|---------------------|----------------|
-| [Console Shell](insights-chrome.md) | [insights-chrome](https://github.com/RedHatInsights/insights-chrome) | Masthead, navigation, authentication integration, micro-frontend hosting, public Chrome API, and shared shell state. |
+| Related component | Relationship | Contribution to this capability |
+|-------------------|--------------|---------------------------------|
+| [Console Shell](insights-chrome.md) | Implements shell integration | Hosts product-selection and marketplace/account-linking interactions; consumes external account/product services. |
 
 ## Capability boundaries
 

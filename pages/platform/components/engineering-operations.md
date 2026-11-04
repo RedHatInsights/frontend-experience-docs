@@ -1,7 +1,7 @@
 # Engineering Operations
 
 **Owner:** Services  
-**Reviewed:** 2026-10-20
+**Reviewed:** 2026-10-23
 
 [Component index](../component-catalog.md)
 
@@ -23,3 +23,7 @@ This component groups engineering planning and reporting resources. The backing 
 ## Ownership and dependency references
 
 Services means Platform Experience Services / Console Framework. Operational contacts and escalation policies remain recorded in the backing implementation pages.
+
+## Team responsibility boundary
+
+Services accountability includes consoles-enhancements, as confirmed by the team owner on 2026-10-23. UI contributes enhancement proposals; Services owns the shared tracking resource.

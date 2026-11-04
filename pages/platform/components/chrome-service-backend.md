@@ -1,5 +1,9 @@
 # Chrome Backend
 
+**Record type:** Software component
+
+Primary catalog record for the backend service. [Console Shell](insights-chrome.md) is a consumer of its APIs, not another implementation of this service. Configuration flow participation is described in [Frontend Deployment & Delivery](frontend-deployment-delivery.md).
+
 **Implementation ID:** S02  
 **Owner:** Services (portfolio ownership).  
 **Type:** Backend service  
@@ -45,3 +49,14 @@ Implementation guides and operational runbooks are maintained in the backing sou
 ## Lifecycle and history
 
 - [dynamic-browser-events](https://github.com/RedHatInsights/dynamic-browser-events) is archived. Current shell/backend WebSocket integration is a separate implementation; remaining legacy deployment status needs confirmation.
+
+## Implementation and consumer boundaries
+
+| Responsibility | Implemented here | Other participants |
+|----------------|------------------|--------------------|
+| User configuration | User preference/configuration persistence and related runtime APIs. | Shell and application consumers render their own experiences; [User Preferences UI](user-preferences-frontend.md) remains a separate application. |
+| Configuration processing/serving | Current handling of generated application/navigation configuration and search-index outputs. | [Frontend Operator](frontend-operator.md) aggregates metadata; [Console Shell](insights-chrome.md) consumes outputs. See [configuration flow](dynamic-navigation.md). |
+| Browser events | Backend WebSocket bridge. | Shell/application consumers and upstream event producers remain distinct. |
+| Integration metadata | Backend-side configuration/metadata used by runtime integrations. | Frontend integration code stays in the shell; upstream support/analytics/identity systems retain their own boundaries. |
+
+[Frontend Configuration Publisher](frontend-config.md) is an intended extraction, not an established replacement. Deployment orchestration remains in the operator; asset publication and serving remain in Valpop and the asset proxy. A repository's participation in several flows does not make it the implementation of every consumer.

@@ -1,7 +1,7 @@
 # Accessibility
 
 **Owner:** Services; application teams own their interfaces  
-**Reviewed:** 2026-10-09
+**Reviewed:** 2026-10-23
 
 [Component index](../component-catalog.md)
 
@@ -37,3 +37,7 @@ The linked backing implementations carry pinned source evidence and implementati
 ## Dependencies and owner references
 
 - **PatternFly, Quickstarts, and shared PatternFly extensions** — [PatternFly](https://github.com/patternfly), [React Component Groups](https://github.com/patternfly/react-component-groups), [React Data View](https://github.com/patternfly/react-data-view), [ChatBot](https://github.com/patternfly/chatbot). Confirm team-specific extension stewardship.
+
+## Team responsibility boundary
+
+Services is accountable for shared-platform accessibility integration. UI maintains accessibility behavior of [shared UI components](frontend-components.md#ui-components). Each application team owns accessibility of its interfaces.

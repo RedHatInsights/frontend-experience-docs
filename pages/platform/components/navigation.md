@@ -1,5 +1,9 @@
 # Navigation
 
+**Record type:** Shell capability
+
+Navigation is a capability of [Console Shell](insights-chrome.md), not another application or service. Its configuration producer/consumer flow is documented separately in [Frontend Configuration & Discovery](dynamic-navigation.md).
+
 **Owner:** Services  
 **Reviewed:** 2026-10-09
 
@@ -9,14 +13,15 @@
 
 Menus, bundles, routes, and access-aware navigation.
 
-## Backing repositories and responsibilities
+<a id="backing-repositories-and-responsibilities"></a>
 
-The implementation records below describe the backing code, its broader responsibilities, lifecycle, and source evidence.
+## Implementation and consumption relationships
 
-| Backing implementation | Repository / source | Responsibility |
-|------------------------|---------------------|----------------|
-| [Console Shell](insights-chrome.md) | [insights-chrome](https://github.com/RedHatInsights/insights-chrome) | Masthead, navigation, authentication integration, micro-frontend hosting, public Chrome API, and shared shell state. |
-| [Chrome Backend](chrome-service-backend.md) | [chrome-service-backend](https://github.com/RedHatInsights/chrome-service-backend) | User configuration/preferences, generated configuration and search-index processing/serving, integration metadata, and browser-event WebSocket bridge. |
+| Related component | Relationship | Contribution to this capability |
+|-------------------|--------------|---------------------------------|
+| [Console Shell](insights-chrome.md) | Implements rendering; consumes configuration | Menus, bundle navigation, routes, visibility checks, and federated navigation extensions. |
+| [Chrome Backend](chrome-service-backend.md) | Configuration provider | Processes/serves the generated configuration used by navigation. |
+| [Frontend Operator](frontend-operator.md) | Metadata aggregator | Collects application navigation definitions; does not render navigation. |
 
 ## Capability boundaries
 

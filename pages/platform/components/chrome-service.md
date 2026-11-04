@@ -1,5 +1,9 @@
 # Chrome Service
 
+**Record type:** Architecture overview
+
+This overview connects [Console Shell](insights-chrome.md) and [Chrome Backend](chrome-service-backend.md), which are separate catalog components. The capability IDs below are documentation anchors, not additional software components. Deployment and configuration orchestration is grouped under [Frontend Deployment & Delivery](frontend-deployment-delivery.md).
+
 **Owner:** Services  
 **Reviewed:** 2026-10-09
 
@@ -9,14 +13,15 @@
 
 Shared console shell, application hosting, and shell backend capabilities.
 
-## Backing repositories and responsibilities
+<a id="backing-repositories-and-responsibilities"></a>
 
-The implementation records below describe the backing code, its broader responsibilities, lifecycle, and source evidence.
+## Implementation and consumption relationships
 
-| Backing implementation | Repository / source | Responsibility |
-|------------------------|---------------------|----------------|
-| [Console Shell](insights-chrome.md) | [insights-chrome](https://github.com/RedHatInsights/insights-chrome) | Masthead, navigation, authentication integration, micro-frontend hosting, public Chrome API, and shared shell state. |
-| [Chrome Backend](chrome-service-backend.md) | [chrome-service-backend](https://github.com/RedHatInsights/chrome-service-backend) | User configuration/preferences, generated configuration and search-index processing/serving, integration metadata, and browser-event WebSocket bridge. |
+| Related component | Relationship | Contribution to this capability |
+|-------------------|--------------|---------------------------------|
+| [Console Shell](insights-chrome.md) | Frontend implementation | Renders shared chrome, integrates authentication, loads applications, exposes Chrome APIs, and hosts integration UI. |
+| [Chrome Backend](chrome-service-backend.md) | Backend implementation | Provides runtime user/configuration APIs, current configuration processing/serving, and the browser-event bridge. |
+| [Frontend Deployment & Delivery](frontend-deployment-delivery.md) | Deployment/configuration system | Coordinates resources, application metadata, and asset delivery consumed by the runtime. |
 
 ## Capability boundaries
 

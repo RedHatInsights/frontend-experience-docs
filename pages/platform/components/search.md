@@ -1,7 +1,7 @@
 # Search
 
 **Owner:** Services  
-**Reviewed:** 2026-10-09
+**Reviewed:** 2026-10-23
 
 [Component index](../component-catalog.md)
 
@@ -39,3 +39,7 @@ The linked backing implementations carry pinned source evidence and implementati
 ## Dependencies and owner references
 
 - **Solr/Hydra legacy search** — Shared search owner; current consumer paths require confirmation. [Survival guide](https://docs.google.com/document/d/1BnGpJBFdCl6kmEW2TipJsGLg0m5Eukgpx7XYNClnwM4/edit?tab=t.0).
+
+## Team responsibility boundary
+
+Services is accountable for the current console search implementation described here. The historical UI list also named “Search UI”; a separate current UI-owned search application was not established by the reviewed UI repository inventory. UI owns API-catalog search metadata generation; any additional UI search responsibility remains to confirm.

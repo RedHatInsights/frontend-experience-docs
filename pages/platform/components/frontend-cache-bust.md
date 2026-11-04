@@ -27,3 +27,11 @@ Implementation guides and operational runbooks are maintained in the backing sou
 ## Dependencies and owner references
 
 - **CDN/WAF and DNS** — Akamai/internal edge and DNS owners. Services integration responsibility is [Akamai Integration](akamai-integration.md). [Survival guide](https://docs.google.com/document/d/1BnGpJBFdCl6kmEW2TipJsGLg0m5Eukgpx7XYNClnwM4/edit?tab=t.0).
+
+## Relationship to Frontend Deployment & Delivery
+
+**Role:** Invalidation tool/integration.
+
+Operator-related purge jobs use this tooling. CDN operation and the starred [Akamai Integration](akamai-integration.md) scope remain separate; existing stewardship uncertainty is unchanged.
+
+[System group and producer/consumer boundaries](frontend-deployment-delivery.md).
